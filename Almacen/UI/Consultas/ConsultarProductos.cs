@@ -24,7 +24,7 @@ namespace AlmacenLT.UI.Consultas
             {
 
 
-                if (ProductosBLL.GetList(x => x.Nombre.Contains(toolStripTextBoxSearch.Text)))
+                if (ProductosBLL.GetList(x => x.Nombre.Contains(toolStripTextBoxSearch.Text), false))
                 {
                     foreach (var producto in ProductosBLL.productoReturnedList)
                     {
@@ -40,7 +40,7 @@ namespace AlmacenLT.UI.Consultas
             }
             else
             {
-                if (ProductosBLL.GetList(x => x.ProductoId > 0 ))
+                if (ProductosBLL.GetList(x => x.ProductoId > 0 , false))
                 {
                     foreach (var producto in ProductosBLL.productoReturnedList)
                     {

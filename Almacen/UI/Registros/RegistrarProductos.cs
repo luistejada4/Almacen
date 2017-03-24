@@ -62,7 +62,7 @@ namespace AlmacenLT.UI.Registros
             if(UtilidadesFormularios.Validar(maskedTextBoxId))
             {
                 int id = int.Parse(maskedTextBoxId.Text);
-                ProductosBLL.Buscar(x => x.ProductoId == id);
+                ProductosBLL.Buscar(x => x.ProductoId == id, false);
                 LlenarFormulario(ProductosBLL.productoReturned);
             }
             else
@@ -76,7 +76,7 @@ namespace AlmacenLT.UI.Registros
             if (UtilidadesFormularios.Validar(maskedTextBoxId))
             {
                 int id = int.Parse(maskedTextBoxId.Text);
-                if (ProductosBLL.Buscar(x => x.ProductoId == id))
+                if (ProductosBLL.Buscar(x => x.ProductoId == id, false))
                 {
                     if (ProductosBLL.Eliminar(ProductosBLL.productoReturned))
                     {
@@ -110,7 +110,7 @@ namespace AlmacenLT.UI.Registros
 
                 Producto producto = new Producto(id, textBoxNombre.Text, int.Parse(maskedTextBoxCosto.Text), int.Parse(maskedTextBoxPrecio.Text), int.Parse(maskedTextBoxCantidad.Text));
 
-                if (!ProductosBLL.Buscar(x => x.ProductoId == id))
+                if (!ProductosBLL.Buscar(x => x.ProductoId == id, false))
                 {
 
                     if (ProductosBLL.Guardar(producto))

@@ -31,7 +31,7 @@ namespace AlmacenLT.UI.Registros
             toolTip.SetToolTip(buttonGuardar, "Haga click para guardar un cliente.");
             toolTip.SetToolTip(buttonEliminar, "Haga click para eliminar un cliente.");
 
-            RutasBLL.GetList(x => x.RutaId > 0);
+            RutasBLL.GetList(x => x.RutaId > 0, false);
             comboBoxRutas.DataSource = RutasBLL.rutaReturnedList;
             comboBoxRutas.DisplayMember = "Lugar";
             comboBoxRutas.ValueMember = "RutaId";
@@ -85,7 +85,7 @@ namespace AlmacenLT.UI.Registros
                 int rutaId = Convert.ToInt32(comboBoxRutas.SelectedValue);
                 Cliente cliente = new Cliente(id, textBoxNombre.Text, textBoxDireccion.Text, maskedTextBoxTelefono.Text, maskedTextBoxCedula.Text, DateTime.Now, rutaId);
 
-                if (!ClientesBLL.Buscar(x => x.ClienteId == id))
+                if (!ClientesBLL.Buscar(x => x.ClienteId == id, false))
                 {
 
                     if (ClientesBLL.Guardar(cliente))
@@ -112,7 +112,7 @@ namespace AlmacenLT.UI.Registros
             {
       
                 int id = int.Parse(maskedTextBoxId.Text);
-                ClientesBLL.Buscar(x => x.ClienteId == id);
+                ClientesBLL.Buscar(x => x.ClienteId == id, false);
                 LlenarFormulario(ClientesBLL.clienteReturned);
             }
         }
@@ -122,7 +122,7 @@ namespace AlmacenLT.UI.Registros
             if (UtilidadesFormularios.Validar(maskedTextBoxId))
             {
                 int id = int.Parse(maskedTextBoxId.Text);
-                if (ClientesBLL.Buscar(x=> x.ClienteId == id))
+                if (ClientesBLL.Buscar(x=> x.ClienteId == id, false))
                 {
                     if(ClientesBLL.Eliminar(ClientesBLL.clienteReturned))
                     {

@@ -61,13 +61,13 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\AlmacenLT\Entidades\Entidades.csproj">
-      <Project>{F9778228-C896-4DC2-AD72-6721917CEC2C}</Project>
-      <Name>Entidades</Name>
-    </ProjectReference>
     <ProjectReference Include="..\DAL\DAL.csproj">
       <Project>{54C89C90-028E-449E-A33B-535DAAF003D9}</Project>
       <Name>DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Entidades\Entidades.csproj">
+      <Project>{2335D203-3F01-46A5-8D83-EA2D8DAAA56A}</Project>
+      <Name>Entidades</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

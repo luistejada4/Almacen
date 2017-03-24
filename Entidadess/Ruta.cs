@@ -20,7 +20,7 @@ namespace Entidades
 
         public Ruta()
         {
-            Clientes = new List<Cliente>();
+           
         }
 
         public Ruta(int rutaId, string lugar, int dia)
@@ -28,7 +28,6 @@ namespace Entidades
             this.RutaId = rutaId;
             this.Lugar = lugar;
             this.Dia = dia;
-            Clientes = new List<Cliente>();
             
         }
     }

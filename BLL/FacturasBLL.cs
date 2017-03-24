@@ -30,11 +30,18 @@ namespace BLL
                 return false;
             }
         }
-        public static bool Buscar(Expression<Func<Factura, bool>> criterio)
+        public static bool Buscar(Expression<Func<Factura, bool>> criterio, bool relaciones)
         {
             using (var db = new Repositorio<Factura>())
             {
-                if ((facturaReturned = db.Buscar(criterio)) != null) return true;
+                if ((facturaReturned = db.Buscar(criterio)) != null)
+                {
+                    if(relaciones)
+                    {
+                        facturaReturned.Productos.Count();
+                    }
+                    return true;
+                }
                 return false;
             }
         }
@@ -46,11 +53,21 @@ namespace BLL
                 return false;
             }
         }
-        public static bool GetList(Expression<Func<Factura, bool>> criterio)
+        public static bool GetList(Expression<Func<Factura, bool>> criterio, bool relaciones)
         {
             using (var db = new Repositorio<Factura>())
             {
-                if ((facturaReturnedList = db.GetList(criterio)) != null) return true;
+                if ((facturaReturnedList = db.GetList(criterio)) != null)
+                {
+                    if(relaciones)
+                    {
+                        foreach (var factura in facturaReturnedList)
+                        {
+                            factura.Productos.Count();
+                        }
+                    }
+                    return true;
+                }
                 return false;
             }
         }

@@ -30,7 +30,7 @@ namespace Entidades
 
         public Cliente()
         {
-            Facturas = new List<Factura>();
+
         }
 
         public Cliente(int clienteId, string nombres, string direccion, string telefono, string cedula, DateTime fecha, int rutaId)
@@ -42,7 +42,7 @@ namespace Entidades
             this.Cedula = cedula;
             this.Fecha = fecha;
             this.RutaId = rutaId;
-            Facturas = new List<Factura>();
+      
         }
     }
 }

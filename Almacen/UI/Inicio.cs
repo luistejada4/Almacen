@@ -16,7 +16,6 @@ namespace AlmacenLT
 {
     public partial class Inicio : Form
     {
-        private List<Producto> productos;
 
         public Inicio()
         {
@@ -29,14 +28,14 @@ namespace AlmacenLT
             groupBoxTotal.Visible = ver;
             if(ver)
             {
-                if (ClientesBLL.GetList(x => x.ClienteId > 0))
+                if (ClientesBLL.GetList(x => x.ClienteId > 0, false))
                 {
                     foreach (var cliente in ClientesBLL.clienteReturnedList)
                     {
                         textBoxNombre.AutoCompleteCustomSource.Add(cliente.Nombres);
                     }
                 }
-                if(ProductosBLL.GetList(x=> x.ProductoId > 0))
+                if(ProductosBLL.GetList(x=> x.ProductoId > 0, false))
                 {
                     comboBoxProductos.DataSource = ProductosBLL.productoReturnedList;
                     comboBoxProductos.DisplayMember = "Nombre";
@@ -135,14 +134,8 @@ namespace AlmacenLT
 
         private void buttonGuardar_Click(object sender, EventArgs e)
         {
-            if(ClientesBLL.Buscar(x => x.Nombres == textBoxNombre.Text))
-            {
-                
-                Factura factura = new Factura(0, ClientesBLL.clienteReturned.ClienteId, 1, DateTime.Now, 500, 500);
-                factura = factura;
-                factura.Productos.Add(new ProductoFactura(1, factura.FacturaId));
-                FacturasBLL.Guardar(factura);
-                
+            if(ClientesBLL.Buscar(x => x.Nombres == textBoxNombre.Text, false))
+            {                           
                 
             }
         }

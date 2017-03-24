@@ -40,7 +40,7 @@ namespace AlmacenLT.UI.Registros
             if(UtilidadesFormularios.Validar(maskedTextBoxId))
             {
                 int id = int.Parse(maskedTextBoxId.Text);
-                if(RutasBLL.Buscar(x=> x.RutaId == id))
+                if(RutasBLL.Buscar(x=> x.RutaId == id, false))
                 {
                     LlenarFormulario(RutasBLL.rutaReturned);
                 }

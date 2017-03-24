@@ -26,15 +26,24 @@ namespace BLL
         {
             using (var db = new Repositorio<Ruta>())
             {
-                if ((rutaReturned = db.Modificar(ruta)) != null) return true;
+                if ((rutaReturned = db.Modificar(ruta)) != null)
+                {
+                    rutaReturned.Clientes.Count();
+                    return true;
+                }
                 return false;
             }
         }
-        public static bool Buscar(Expression<Func<Ruta, bool>> criterio)
+        public static bool Buscar(Expression<Func<Ruta, bool>> criterio, bool  relaciones)
         {
             using (var db = new Repositorio<Ruta>())
             {
-                if ((rutaReturned = db.Buscar(criterio)) != null) return true;
+                if ((rutaReturned = db.Buscar(criterio)) != null)
+                {
+                    if(relaciones) rutaReturned.Clientes.Count();
+
+                    return true;
+                }
                 return false;
             }
         }
@@ -46,11 +55,21 @@ namespace BLL
                 return false;
             }
         }
-        public static bool GetList(Expression<Func<Ruta, bool>> criterio)
+        public static bool GetList(Expression<Func<Ruta, bool>> criterio, bool relaciones)
         {
             using (var db = new Repositorio<Ruta>())
             {
-                if ((rutaReturnedList = db.GetList(criterio)) != null) return true;
+                if ((rutaReturnedList = db.GetList(criterio)) != null)
+                {
+                    if (relaciones)
+                    {
+                        foreach (var ruta in rutaReturnedList)
+                        {
+                            ruta.Clientes.Count();
+                        }
+                    }
+                    return true;
+                }
                 return false;
             }
         }

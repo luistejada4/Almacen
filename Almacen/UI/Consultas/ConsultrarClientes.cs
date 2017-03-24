@@ -20,7 +20,7 @@ namespace AlmacenLT.UI.Consultas
             InitializeComponent();
         }
 
-        private List<Cliente> clientes = null;
+
         private void ConsultrarCliente_Load(object sender, EventArgs e)
         {
             dataGridView.Rows[0].Cells[2].Value = new Button().Text = "Ver";
