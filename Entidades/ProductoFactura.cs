@@ -18,14 +18,20 @@ namespace Entidades
 
         public Factura Factura { get; set; }
 
+        public int Cantidad { get; set; }
+
+        public int Precio { get; set; }
+
         public ProductoFactura()
         {
 
         }
-        public ProductoFactura(int productoId, int facturaId)
+        public ProductoFactura(int productoId, int facturaId, int cantidad, int precio)
         {
             this.ProductoId = productoId;
             this.FacturaId = facturaId;
+            this.Cantidad = cantidad;
+            this.Precio = precio;
         }
     }
 }

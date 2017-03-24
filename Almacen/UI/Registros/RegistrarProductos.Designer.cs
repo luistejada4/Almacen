@@ -136,7 +136,7 @@
             this.maskedTextBoxPrecio.Mask = "9999999999";
             this.maskedTextBoxPrecio.Name = "maskedTextBoxPrecio";
             this.maskedTextBoxPrecio.Size = new System.Drawing.Size(237, 25);
-            this.maskedTextBoxPrecio.TabIndex = 16;
+            this.maskedTextBoxPrecio.TabIndex = 4;
             this.maskedTextBoxPrecio.ValidatingType = typeof(int);
             this.maskedTextBoxPrecio.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyDown);
             // 
@@ -149,7 +149,7 @@
             this.maskedTextBoxCosto.Mask = "9999999999";
             this.maskedTextBoxCosto.Name = "maskedTextBoxCosto";
             this.maskedTextBoxCosto.Size = new System.Drawing.Size(237, 25);
-            this.maskedTextBoxCosto.TabIndex = 15;
+            this.maskedTextBoxCosto.TabIndex = 3;
             this.maskedTextBoxCosto.ValidatingType = typeof(int);
             this.maskedTextBoxCosto.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyDown);
             // 
@@ -162,7 +162,7 @@
             this.maskedTextBoxCantidad.Mask = "9999999999";
             this.maskedTextBoxCantidad.Name = "maskedTextBoxCantidad";
             this.maskedTextBoxCantidad.Size = new System.Drawing.Size(237, 25);
-            this.maskedTextBoxCantidad.TabIndex = 14;
+            this.maskedTextBoxCantidad.TabIndex = 2;
             this.maskedTextBoxCantidad.ValidatingType = typeof(int);
             this.maskedTextBoxCantidad.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyDown);
             // 
@@ -190,7 +190,7 @@
             this.label1.Location = new System.Drawing.Point(65, 40);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(23, 22);
-            this.label1.TabIndex = 11;
+            this.label1.TabIndex = 4;
             this.label1.Text = "Id";
             // 
             // buttonBuscar
@@ -227,7 +227,7 @@
             this.maskedTextBoxId.Mask = "9999999999";
             this.maskedTextBoxId.Name = "maskedTextBoxId";
             this.maskedTextBoxId.Size = new System.Drawing.Size(137, 25);
-            this.maskedTextBoxId.TabIndex = 1;
+            this.maskedTextBoxId.TabIndex = 0;
             this.maskedTextBoxId.ValidatingType = typeof(int);
             this.maskedTextBoxId.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyDown);
             // 
@@ -242,7 +242,7 @@
             this.buttonGuardar.Name = "buttonGuardar";
             this.buttonGuardar.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.buttonGuardar.Size = new System.Drawing.Size(75, 35);
-            this.buttonGuardar.TabIndex = 8;
+            this.buttonGuardar.TabIndex = 5;
             this.buttonGuardar.Text = "Guardar";
             this.buttonGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonGuardar.UseVisualStyleBackColor = true;
@@ -256,7 +256,7 @@
             this.textBoxNombre.Location = new System.Drawing.Point(94, 67);
             this.textBoxNombre.Name = "textBoxNombre";
             this.textBoxNombre.Size = new System.Drawing.Size(237, 23);
-            this.textBoxNombre.TabIndex = 2;
+            this.textBoxNombre.TabIndex = 1;
             this.textBoxNombre.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBoxNombre.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_KeyDown);
             // 

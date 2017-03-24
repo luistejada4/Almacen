@@ -64,8 +64,13 @@
             this.buttonNuevo = new System.Windows.Forms.Button();
             this.groupBoxTotal = new System.Windows.Forms.GroupBox();
             this.labelTotal = new System.Windows.Forms.Label();
+            this.labelSubTotal = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBoxFactura = new System.Windows.Forms.GroupBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.comboBoxFormaDePago = new System.Windows.Forms.ComboBox();
+            this.numericUpDownCantidad = new System.Windows.Forms.NumericUpDown();
             this.buttonAgregarProducto = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.comboBoxProductos = new System.Windows.Forms.ComboBox();
@@ -81,25 +86,20 @@
             this.toolStripLabelEstado = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripLabelHaciendo = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripProgressBar = new System.Windows.Forms.ToolStripProgressBar();
-            this.numericUpDownCantidad = new System.Windows.Forms.NumericUpDown();
-            this.comboBoxFormaDePago = new System.Windows.Forms.ComboBox();
-            this.label9 = new System.Windows.Forms.Label();
             this.ColumnProductoId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnSubTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.labelSubTotal = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.menuStripAlmacenLT.SuspendLayout();
             this.toolStripAlmacenLT.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBoxBotones.SuspendLayout();
             this.groupBoxTotal.SuspendLayout();
             this.groupBoxFactura.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCantidad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.statusRegistrarCliente.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCantidad)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStripAlmacenLT
@@ -435,6 +435,17 @@
             this.labelTotal.TabIndex = 17;
             this.labelTotal.Text = "0.0";
             // 
+            // labelSubTotal
+            // 
+            this.labelSubTotal.AutoSize = true;
+            this.labelSubTotal.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSubTotal.ForeColor = System.Drawing.Color.Black;
+            this.labelSubTotal.Location = new System.Drawing.Point(80, 12);
+            this.labelSubTotal.Name = "labelSubTotal";
+            this.labelSubTotal.Size = new System.Drawing.Size(34, 22);
+            this.labelSubTotal.TabIndex = 16;
+            this.labelSubTotal.Text = "0.0";
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -445,6 +456,17 @@
             this.label2.Size = new System.Drawing.Size(46, 22);
             this.label2.TabIndex = 15;
             this.label2.Text = "Total";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.DimGray;
+            this.label1.Location = new System.Drawing.Point(6, 12);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(68, 22);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "Subtotal";
             // 
             // groupBoxFactura
             // 
@@ -471,6 +493,34 @@
             this.groupBoxFactura.TabIndex = 13;
             this.groupBoxFactura.TabStop = false;
             this.groupBoxFactura.Text = "Facturacion";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.DimGray;
+            this.label9.Location = new System.Drawing.Point(1, 114);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(124, 22);
+            this.label9.TabIndex = 39;
+            this.label9.Text = "Forma de pago";
+            // 
+            // comboBoxFormaDePago
+            // 
+            this.comboBoxFormaDePago.FormattingEnabled = true;
+            this.comboBoxFormaDePago.Location = new System.Drawing.Point(127, 112);
+            this.comboBoxFormaDePago.Name = "comboBoxFormaDePago";
+            this.comboBoxFormaDePago.Size = new System.Drawing.Size(239, 26);
+            this.comboBoxFormaDePago.TabIndex = 38;
+            // 
+            // numericUpDownCantidad
+            // 
+            this.numericUpDownCantidad.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numericUpDownCantidad.ForeColor = System.Drawing.Color.DimGray;
+            this.numericUpDownCantidad.Location = new System.Drawing.Point(380, 144);
+            this.numericUpDownCantidad.Name = "numericUpDownCantidad";
+            this.numericUpDownCantidad.Size = new System.Drawing.Size(42, 26);
+            this.numericUpDownCantidad.TabIndex = 37;
             // 
             // buttonAgregarProducto
             // 
@@ -592,6 +642,7 @@
             this.buttonBuscar.Size = new System.Drawing.Size(29, 25);
             this.buttonBuscar.TabIndex = 12;
             this.buttonBuscar.UseVisualStyleBackColor = true;
+            this.buttonBuscar.Click += new System.EventHandler(this.buttonBuscar_Click);
             // 
             // maskedTextBoxId
             // 
@@ -635,34 +686,6 @@
             this.toolStripProgressBar.Size = new System.Drawing.Size(100, 16);
             this.toolStripProgressBar.Value = 1;
             // 
-            // numericUpDownCantidad
-            // 
-            this.numericUpDownCantidad.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericUpDownCantidad.ForeColor = System.Drawing.Color.DimGray;
-            this.numericUpDownCantidad.Location = new System.Drawing.Point(380, 144);
-            this.numericUpDownCantidad.Name = "numericUpDownCantidad";
-            this.numericUpDownCantidad.Size = new System.Drawing.Size(42, 26);
-            this.numericUpDownCantidad.TabIndex = 37;
-            // 
-            // comboBoxFormaDePago
-            // 
-            this.comboBoxFormaDePago.FormattingEnabled = true;
-            this.comboBoxFormaDePago.Location = new System.Drawing.Point(127, 112);
-            this.comboBoxFormaDePago.Name = "comboBoxFormaDePago";
-            this.comboBoxFormaDePago.Size = new System.Drawing.Size(239, 26);
-            this.comboBoxFormaDePago.TabIndex = 38;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.DimGray;
-            this.label9.Location = new System.Drawing.Point(1, 114);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(124, 22);
-            this.label9.TabIndex = 39;
-            this.label9.Text = "Forma de pago";
-            // 
             // ColumnProductoId
             // 
             this.ColumnProductoId.HeaderText = "ProductoId";
@@ -692,28 +715,6 @@
             this.ColumnSubTotal.Name = "ColumnSubTotal";
             this.ColumnSubTotal.ReadOnly = true;
             // 
-            // labelSubTotal
-            // 
-            this.labelSubTotal.AutoSize = true;
-            this.labelSubTotal.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSubTotal.ForeColor = System.Drawing.Color.Black;
-            this.labelSubTotal.Location = new System.Drawing.Point(80, 12);
-            this.labelSubTotal.Name = "labelSubTotal";
-            this.labelSubTotal.Size = new System.Drawing.Size(34, 22);
-            this.labelSubTotal.TabIndex = 16;
-            this.labelSubTotal.Text = "0.0";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.DimGray;
-            this.label1.Location = new System.Drawing.Point(6, 12);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(68, 22);
-            this.label1.TabIndex = 14;
-            this.label1.Text = "Subtotal";
-            // 
             // Inicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -740,10 +741,10 @@
             this.groupBoxTotal.PerformLayout();
             this.groupBoxFactura.ResumeLayout(false);
             this.groupBoxFactura.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCantidad)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.statusRegistrarCliente.ResumeLayout(false);
             this.statusRegistrarCliente.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCantidad)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -806,13 +807,13 @@
         private System.Windows.Forms.NumericUpDown numericUpDownCantidad;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox comboBoxFormaDePago;
+        private System.Windows.Forms.Label labelSubTotal;
+        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnProductoId;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnProducto;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnPrecio;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSubTotal;
-        private System.Windows.Forms.Label labelSubTotal;
-        private System.Windows.Forms.Label label1;
     }
 }
 

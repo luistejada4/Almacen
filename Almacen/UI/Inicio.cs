@@ -171,7 +171,7 @@ namespace AlmacenLT
                         {
                             int productoId = Convert.ToInt32(producto.Cells[0].Value);
                             ProductosBLL.Buscar(x => x.ProductoId == productoId, false);
-                            factura.Productos.Add(new ProductoFactura(ProductosBLL.productoReturned.ProductoId, factura.FacturaId));
+                            factura.Productos.Add(new ProductoFactura(ProductosBLL.productoReturned.ProductoId, factura.FacturaId, Convert.ToInt32(producto.Cells[2].Value), Convert.ToInt32(producto.Cells[3].Value)));
                         }
                     }
                     if (FacturasBLL.Guardar(factura))
@@ -186,7 +186,8 @@ namespace AlmacenLT
                         if (!string.IsNullOrEmpty(Convert.ToString(dataGridView.Rows[i].Cells[0].Value)) && !string.IsNullOrWhiteSpace(Convert.ToString(dataGridView.Rows[i].Cells[0].Value)))
                         {
                             int productoId = Convert.ToInt32(dataGridView.Rows[i].Cells[0].Value);
-                            factura.Productos.Add(new ProductoFactura(productoId, factura.FacturaId));                                      
+                            int productoCantidad = Convert.ToInt32(dataGridView.Rows[i].Cells[2].Value);
+                            factura.Productos.Add(new ProductoFactura(productoId, factura.FacturaId, productoCantidad, Convert.ToInt32(dataGridView.Rows[i].Cells[3].Value)));                                      
                             
                         }
                     }
@@ -200,6 +201,36 @@ namespace AlmacenLT
             else
             {
       
+            }
+        }
+
+        private void buttonBuscar_Click(object sender, EventArgs e)
+        {
+            dataGridView.Rows.Clear();
+            dataGridView.Refresh();
+            if(UtilidadesFormularios.Validar(maskedTextBoxId))
+            {
+                int id = int.Parse(maskedTextBoxId.Text);
+                
+                if(FacturasBLL.Buscar(x=> x.FacturaId == id, true))
+                {
+                    Factura factura = FacturasBLL.facturaReturned;
+                    textBoxNombre.Text = factura.Cliente.Nombres;
+                    dateTimePicker1.Value = factura.Fecha;
+                    comboBoxFormaDePago.SelectedValue = factura.FormaDePagoId;
+
+                    foreach (var producto in factura.Productos)
+                    {
+                        DataGridViewRow row = (DataGridViewRow)dataGridView.Rows[0].Clone();
+                        row.Cells[0].Value = producto.ProductoId;
+                        row.Cells[1].Value = producto.Producto.Nombre;
+                        row.Cells[2].Value = producto.Cantidad;
+                        row.Cells[3].Value = producto.Precio;
+                        row.Cells[4].Value = row.Cells[4].Value = Convert.ToDouble(row.Cells[2].Value) * Convert.ToDouble(row.Cells[3].Value);
+                        dataGridView.Rows.Add(row);
+                    }
+                    CalcularFactura();
+                }
             }
         }
     }

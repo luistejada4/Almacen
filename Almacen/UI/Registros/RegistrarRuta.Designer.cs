@@ -148,7 +148,7 @@
             this.buttonGuardar.Name = "buttonGuardar";
             this.buttonGuardar.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.buttonGuardar.Size = new System.Drawing.Size(75, 35);
-            this.buttonGuardar.TabIndex = 8;
+            this.buttonGuardar.TabIndex = 4;
             this.buttonGuardar.Text = "Guardar";
             this.buttonGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonGuardar.UseVisualStyleBackColor = true;
@@ -183,7 +183,7 @@
             this.comboBoxDias.Location = new System.Drawing.Point(66, 99);
             this.comboBoxDias.Name = "comboBoxDias";
             this.comboBoxDias.Size = new System.Drawing.Size(237, 29);
-            this.comboBoxDias.TabIndex = 4;
+            this.comboBoxDias.TabIndex = 3;
             this.comboBoxDias.Text = "Seleccione un dia";
             // 
             // buttonNuevo

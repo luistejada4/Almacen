@@ -3,7 +3,7 @@ namespace DAL.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class init : DbMigration
+    public partial class Init : DbMigration
     {
         public override void Up()
         {
@@ -55,6 +55,8 @@ namespace DAL.Migrations
                     {
                         FacturaId = c.Int(nullable: false),
                         ProductoId = c.Int(nullable: false),
+                        Cantidad = c.Int(nullable: false),
+                        Precio = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => new { t.FacturaId, t.ProductoId })
                 .ForeignKey("dbo.Factura", t => t.FacturaId, cascadeDelete: true)

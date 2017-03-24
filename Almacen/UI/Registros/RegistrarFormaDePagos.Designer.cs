@@ -96,7 +96,7 @@
             this.groupBox1.Location = new System.Drawing.Point(48, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(372, 143);
-            this.groupBox1.TabIndex = 26;
+            this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos";
             // 
@@ -167,7 +167,7 @@
             this.buttonGuardar.Name = "buttonGuardar";
             this.buttonGuardar.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.buttonGuardar.Size = new System.Drawing.Size(75, 35);
-            this.buttonGuardar.TabIndex = 8;
+            this.buttonGuardar.TabIndex = 3;
             this.buttonGuardar.Text = "Guardar";
             this.buttonGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonGuardar.UseVisualStyleBackColor = true;

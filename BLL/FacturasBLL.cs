@@ -57,6 +57,13 @@ namespace BLL
                         FormasDePagosBLL.Buscar(x => x.FormaDePagoId == facturaReturned.FormaDePagoId);
                         facturaReturned.FormaDePago = FormasDePagosBLL.formaDePagoReturned;
                         facturaReturned.Cliente = ClientesBLL.clienteReturned;
+
+                        foreach (var producto in facturaReturned.Productos)
+                        {
+                            int id = producto.ProductoId;
+                            ProductosBLL.Buscar(x => x.ProductoId == id, true);
+                            producto.Producto = ProductosBLL.productoReturned;
+                        }
                     }
                     return true;
                 }
@@ -86,6 +93,13 @@ namespace BLL
                             factura.FormaDePago = FormasDePagosBLL.formaDePagoReturned;
                             factura.Cliente = ClientesBLL.clienteReturned;
                             factura.Productos.Count();
+
+                            foreach (var producto in factura.Productos)
+                            {
+                                int id = producto.ProductoId;
+                                ProductosBLL.Buscar(x => x.ProductoId == id, true);
+                                producto.Producto = ProductosBLL.productoReturned;
+                            }
                         }
                     }
                     return true;
