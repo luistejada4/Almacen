@@ -34,9 +34,15 @@ namespace BLL
         {
             using (var db = new Repositorio<Cliente>())
             {
+                
                 if ((clienteReturned = db.Buscar(criterio)) != null)
                 {
-                    if (relaciones) clienteReturned.Facturas.Count();
+                    if (relaciones)
+                    {
+                        RutasBLL.Buscar(x => x.RutaId == clienteReturned.RutaId, false);
+                        clienteReturned.Ruta = RutasBLL.rutaReturned;
+                        clienteReturned.Facturas.Count();
+                    }
                     return true;
                 }
                 return false;
@@ -54,13 +60,17 @@ namespace BLL
         {
             using (var db = new Repositorio<Cliente>())
             {
+                
                 if ((clienteReturnedList = db.GetList(criterio)) != null)
                 {
+
                     if (relaciones)
                     {
                         foreach (var cliente in clienteReturnedList)
                         {
                             cliente.Facturas.Count();
+                            RutasBLL.Buscar(x => x.RutaId == cliente.RutaId, false);
+                            cliente.Ruta = RutasBLL.rutaReturned;
                         }
                     }
                     return true;

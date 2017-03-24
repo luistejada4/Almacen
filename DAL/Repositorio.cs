@@ -28,7 +28,7 @@ namespace DAL
         {
             try
             {
-                return EntitySet.Where(criterio).FirstOrDefault();
+                return EntitySet.Where(criterio).SingleOrDefault();
             }
             catch (Exception)
             {
@@ -64,17 +64,15 @@ namespace DAL
 
         public List<TEntity> GetList(Expression<Func<TEntity, bool>> criterio)
         {
-            List<TEntity> result = null;
             try
             {
-                result = EntitySet.Where(criterio).ToList();
+                return EntitySet.Where(criterio).ToList();
             }
             catch (Exception)
             {
 
                 throw;
             }
-            return result;
         }
 
         public TEntity Guardar(TEntity entidad)
@@ -98,6 +96,7 @@ namespace DAL
             TEntity result;
             try
             {
+                EntitySet.Attach(entidad);
                 Context.Entry<TEntity>(entidad).State = EntityState.Modified;
                 Context.SaveChanges();
                 result = entidad;

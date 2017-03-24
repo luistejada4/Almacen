@@ -46,7 +46,7 @@ namespace AlmacenLT.UI.Registros
                 comboBoxRutas.SelectedValue = cliente.RutaId;
                 maskedTextBoxTelefono.Text = cliente.Telefono;
                 textBoxDireccion.Text = cliente.Direccion;
-                maskedTextBoxCedula.Text = cliente.Direccion;
+                maskedTextBoxCedula.Text = cliente.Cedula;
             }
         }
 

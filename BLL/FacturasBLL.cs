@@ -24,11 +24,25 @@ namespace BLL
         }
         public static bool Modificar(Factura factura)
         {
-            using (var db = new Repositorio<Factura>())
+            using (var context = new Database())
             {
+                context.Entry(factura).State = System.Data.Entity.EntityState.Modified;
+
+                foreach (var producto in factura.Productos)
+                {
+                    context.Entry(producto).State = System.Data.Entity.EntityState.Modified;
+                }
+                context.SaveChanges();
+                return true;
+            }
+            /*using (var db = new Repositorio<Factura>())
+            {
+                
                 if ((facturaReturned = db.Modificar(factura)) != null) return true;
                 return false;
-            }
+                
+             
+            }*/
         }
         public static bool Buscar(Expression<Func<Factura, bool>> criterio, bool relaciones)
         {
@@ -39,6 +53,10 @@ namespace BLL
                     if(relaciones)
                     {
                         facturaReturned.Productos.Count();
+                        ClientesBLL.Buscar(x => x.ClienteId == facturaReturned.ClienteId, false);
+                        FormasDePagosBLL.Buscar(x => x.FormaDePagoId == facturaReturned.FormaDePagoId);
+                        facturaReturned.FormaDePago = FormasDePagosBLL.formaDePagoReturned;
+                        facturaReturned.Cliente = ClientesBLL.clienteReturned;
                     }
                     return true;
                 }
@@ -63,6 +81,10 @@ namespace BLL
                     {
                         foreach (var factura in facturaReturnedList)
                         {
+                            ClientesBLL.Buscar(x => x.ClienteId == factura.ClienteId, false);
+                            FormasDePagosBLL.Buscar(x => x.FormaDePagoId == factura.FormaDePagoId);
+                            factura.FormaDePago = FormasDePagosBLL.formaDePagoReturned;
+                            factura.Cliente = ClientesBLL.clienteReturned;
                             factura.Productos.Count();
                         }
                     }

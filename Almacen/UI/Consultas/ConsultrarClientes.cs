@@ -1,4 +1,5 @@
 ﻿using AlmacenLT.Utilidades;
+using BLL;
 using Entidades;
 using System;
 using System.Collections.Generic;
@@ -20,28 +21,61 @@ namespace AlmacenLT.UI.Consultas
             InitializeComponent();
         }
 
+        private void LlenarGrid(List<Cliente> clientes)
+        {
+            dataGridView.Rows.Clear();
+            dataGridView.Refresh();
+            foreach (var cliente in clientes)
+            {
+                DataGridViewRow row = (DataGridViewRow)dataGridView.Rows[0].Clone();
+                row.Cells[0].Value = cliente.ClienteId;
+                row.Cells[1].Value = cliente.Nombres;
+                row.Cells[2].Value = cliente.Ruta.Lugar;
+                row.Cells[3].Value = "Ver";
+                dataGridView.Rows.Add(row);
+            }
+        }
+
 
         private void ConsultrarCliente_Load(object sender, EventArgs e)
         {
-            dataGridView.Rows[0].Cells[2].Value = new Button().Text = "Ver";
+            checkBoxNombre.Checked = false;
+            toolStripTextBoxSearch.Enabled = false;
         }
 
         private void toolStripButtonBuscar_Click(object sender, EventArgs e)
         {
-            
-            
-           
+
+            if (checkBoxNombre.Checked)
+            {
+                if (!string.IsNullOrEmpty(toolStripTextBoxSearch.Text) || !string.IsNullOrWhiteSpace(toolStripTextBoxSearch.Text))
+                {
+
+                    if (ClientesBLL.GetList(x => x.Nombres.Contains(toolStripTextBoxSearch.Text), true))
+                    {
+                        LlenarGrid(ClientesBLL.clienteReturnedList);
+                    }
+                }
+            }
+            else
+            {
+                if (ClientesBLL.GetList(x => x.ClienteId > 0, true))
+                {
+                    LlenarGrid(ClientesBLL.clienteReturnedList);
+                }
+            }
+
         }
 
-        private void backgroundWorkerConsultarClientes_DoWork(object sender, DoWorkEventArgs e)
+        private void checkBoxNombre_CheckedChanged(object sender, EventArgs e)
         {
-            
-
+            if (checkBoxNombre.Checked) toolStripTextBoxSearch.Enabled = true;
+            else toolStripTextBoxSearch.Enabled = false;
         }
 
-        private void backgroundWorkerConsultarClientes_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
-            
+
         }
     }
 }

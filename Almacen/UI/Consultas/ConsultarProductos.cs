@@ -1,4 +1,5 @@
 ﻿using BLL;
+using Entidades;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,42 +19,54 @@ namespace AlmacenLT.UI.Consultas
             InitializeComponent();
         }
 
+        private void LlenarGrid(List<Producto> productos)
+        {
+            dataGridView.Rows.Clear();
+            dataGridView.Refresh();
+            foreach (var producto in productos)
+            {
+                DataGridViewRow row = (DataGridViewRow)dataGridView.Rows[0].Clone();
+                row.Cells[0].Value = producto.ProductoId;
+                row.Cells[1].Value = producto.Nombre;
+                row.Cells[2].Value = producto.Cantidad;
+                row.Cells[3].Value = producto.Costo;
+                row.Cells[4].Value = producto.Precio;
+                dataGridView.Rows.Add(row);
+            }
+        }
+
         private void toolStripButtonBuscar_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(toolStripTextBoxSearch.Text) || !string.IsNullOrWhiteSpace(toolStripTextBoxSearch.Text))
+            if (checkBoxNombre.Checked)
             {
-
-
-                if (ProductosBLL.GetList(x => x.Nombre.Contains(toolStripTextBoxSearch.Text), false))
+                if (!string.IsNullOrEmpty(toolStripTextBoxSearch.Text) || !string.IsNullOrWhiteSpace(toolStripTextBoxSearch.Text))
                 {
-                    foreach (var producto in ProductosBLL.productoReturnedList)
+
+                    if (ProductosBLL.GetList(x => x.Nombre.Contains(toolStripTextBoxSearch.Text), false))
                     {
-                        DataGridViewRow row = (DataGridViewRow)dataGridView.Rows[0].Clone();
-                        row.Cells[0].Value = producto.ProductoId;
-                        row.Cells[1].Value = producto.Nombre;
-                        row.Cells[2].Value = producto.Cantidad;
-                        row.Cells[3].Value = producto.Costo;
-                        row.Cells[4].Value = producto.Precio;
-                        dataGridView.Rows.Add(row);
+                        LlenarGrid(ProductosBLL.productoReturnedList);
                     }
-                }
+                }              
             }
             else
             {
-                if (ProductosBLL.GetList(x => x.ProductoId > 0 , false))
+                if (ProductosBLL.GetList(x => x.ProductoId > 0, false))
                 {
-                    foreach (var producto in ProductosBLL.productoReturnedList)
-                    {
-                        DataGridViewRow row = (DataGridViewRow)dataGridView.Rows[0].Clone();
-                        row.Cells[0].Value = producto.ProductoId;
-                        row.Cells[1].Value = producto.Nombre;
-                        row.Cells[2].Value = producto.Cantidad;
-                        row.Cells[3].Value = producto.Costo;
-                        row.Cells[4].Value = producto.Precio;
-                        dataGridView.Rows.Add(row);
-                    }
+                    LlenarGrid(ProductosBLL.productoReturnedList);
                 }
             }
+        }
+
+        private void checkBoxNombre_CheckedChanged(object sender, EventArgs e)
+        {
+            if(checkBoxNombre.Checked) toolStripTextBoxSearch.Enabled = true;
+            else toolStripTextBoxSearch.Enabled = false;
+        }
+
+        private void ConsultarProductos_Load(object sender, EventArgs e)
+        {
+            toolStripTextBoxSearch.Enabled = false;
+            checkBoxNombre.Checked = false;
         }
     }
 }

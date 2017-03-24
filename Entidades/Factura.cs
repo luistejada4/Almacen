@@ -23,7 +23,7 @@ namespace Entidades
         public Cliente Cliente { get; set; }
 
         public int FormaDePagoId { get; set; }
-        public FormaDePago FormDePago { get; set; }
+        public FormaDePago FormaDePago { get; set; }
 
         public virtual List<ProductoFactura> Productos { get; set; }
 
@@ -32,12 +32,12 @@ namespace Entidades
             Productos = new List<ProductoFactura>();
         }
 
-        public Factura(int facturaId, int clienteId, int formaDePago, DateTime fecha, float subTotal, float total)
+        public Factura(int facturaId, int clienteId, int formaDePagoId, DateTime fecha, float subTotal, float total)
         {
 
             this.FacturaId = facturaId;
             this.ClienteId = clienteId;
-            this.FormaDePagoId = formaDePago;
+            this.FormaDePagoId = formaDePagoId;
             this.Fecha = fecha;
             this.SubTotal = subTotal;
             this.Total = total;

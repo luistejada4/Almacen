@@ -30,6 +30,11 @@
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.ColumnId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnCosto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statusRegistrarCliente = new System.Windows.Forms.StatusStrip();
             this.toolStripLabelEstado = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripLabelHaciendo = new System.Windows.Forms.ToolStripStatusLabel();
@@ -39,15 +44,13 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripTextBoxSearch = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripButtonBuscar = new System.Windows.Forms.ToolStripButton();
-            this.ColumnId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnCantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnCosto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.checkBoxNombre = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.statusRegistrarCliente.SuspendLayout();
             this.toolStrip1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -55,7 +58,7 @@
             this.groupBox1.Controls.Add(this.dataGridView);
             this.groupBox1.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.DimGray;
-            this.groupBox1.Location = new System.Drawing.Point(30, 46);
+            this.groupBox1.Location = new System.Drawing.Point(30, 101);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(593, 381);
             this.groupBox1.TabIndex = 34;
@@ -78,13 +81,38 @@
             this.dataGridView.Size = new System.Drawing.Size(543, 340);
             this.dataGridView.TabIndex = 31;
             // 
+            // ColumnId
+            // 
+            this.ColumnId.HeaderText = "Id";
+            this.ColumnId.Name = "ColumnId";
+            // 
+            // ColumnNombre
+            // 
+            this.ColumnNombre.HeaderText = "Nombre";
+            this.ColumnNombre.Name = "ColumnNombre";
+            // 
+            // ColumnCantidad
+            // 
+            this.ColumnCantidad.HeaderText = "Cantidad";
+            this.ColumnCantidad.Name = "ColumnCantidad";
+            // 
+            // ColumnCosto
+            // 
+            this.ColumnCosto.HeaderText = "Costo";
+            this.ColumnCosto.Name = "ColumnCosto";
+            // 
+            // ColumnPrecio
+            // 
+            this.ColumnPrecio.HeaderText = "Precio";
+            this.ColumnPrecio.Name = "ColumnPrecio";
+            // 
             // statusRegistrarCliente
             // 
             this.statusRegistrarCliente.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripLabelEstado,
             this.toolStripLabelHaciendo,
             this.toolStripProgressBar});
-            this.statusRegistrarCliente.Location = new System.Drawing.Point(0, 436);
+            this.statusRegistrarCliente.Location = new System.Drawing.Point(0, 494);
             this.statusRegistrarCliente.Name = "statusRegistrarCliente";
             this.statusRegistrarCliente.Size = new System.Drawing.Size(653, 22);
             this.statusRegistrarCliente.TabIndex = 36;
@@ -150,36 +178,33 @@
             this.toolStripButtonBuscar.Text = "toolStripButton1";
             this.toolStripButtonBuscar.Click += new System.EventHandler(this.toolStripButtonBuscar_Click);
             // 
-            // ColumnId
+            // groupBox2
             // 
-            this.ColumnId.HeaderText = "Id";
-            this.ColumnId.Name = "ColumnId";
+            this.groupBox2.Controls.Add(this.checkBoxNombre);
+            this.groupBox2.Location = new System.Drawing.Point(30, 41);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(200, 54);
+            this.groupBox2.TabIndex = 38;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Filtrar";
             // 
-            // ColumnNombre
+            // checkBoxNombre
             // 
-            this.ColumnNombre.HeaderText = "Nombre";
-            this.ColumnNombre.Name = "ColumnNombre";
-            // 
-            // ColumnCantidad
-            // 
-            this.ColumnCantidad.HeaderText = "Cantidad";
-            this.ColumnCantidad.Name = "ColumnCantidad";
-            // 
-            // ColumnCosto
-            // 
-            this.ColumnCosto.HeaderText = "Costo";
-            this.ColumnCosto.Name = "ColumnCosto";
-            // 
-            // ColumnPrecio
-            // 
-            this.ColumnPrecio.HeaderText = "Precio";
-            this.ColumnPrecio.Name = "ColumnPrecio";
+            this.checkBoxNombre.AutoSize = true;
+            this.checkBoxNombre.Location = new System.Drawing.Point(21, 19);
+            this.checkBoxNombre.Name = "checkBoxNombre";
+            this.checkBoxNombre.Size = new System.Drawing.Size(63, 17);
+            this.checkBoxNombre.TabIndex = 0;
+            this.checkBoxNombre.Text = "Nombre";
+            this.checkBoxNombre.UseVisualStyleBackColor = true;
+            this.checkBoxNombre.CheckedChanged += new System.EventHandler(this.checkBoxNombre_CheckedChanged);
             // 
             // ConsultarProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(653, 458);
+            this.ClientSize = new System.Drawing.Size(653, 516);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.statusRegistrarCliente);
             this.Controls.Add(this.groupBox1);
@@ -189,12 +214,15 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "ConsultarProductos";
+            this.Load += new System.EventHandler(this.ConsultarProductos_Load);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.statusRegistrarCliente.ResumeLayout(false);
             this.statusRegistrarCliente.PerformLayout();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -217,5 +245,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCantidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCosto;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnPrecio;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.CheckBox checkBoxNombre;
     }
 }

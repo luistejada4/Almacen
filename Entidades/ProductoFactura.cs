@@ -10,12 +10,12 @@ namespace Entidades
 {
     public class ProductoFactura
     {
-        [Key, Column(Order = 0)]
         public int ProductoId { get; set; }
+
         public Producto Producto { get; set; }
 
-        [Key, Column(Order = 1)]
         public int FacturaId { get; set; }
+
         public Factura Factura { get; set; }
 
         public ProductoFactura()

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,11 +23,12 @@ namespace Entidades
  
         public DateTime Fecha { get; set; }
 
-        public int FacturaId { get; set; }
         public virtual List<Factura> Facturas { get; set; }
 
         public int RutaId { get; set; }
-        public Ruta Ruta { get; set; }
+
+        public virtual Ruta Ruta { get; set; }
+
 
         public Cliente()
         {

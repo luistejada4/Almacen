@@ -39,20 +39,13 @@
             this.toolStripTextBoxSearch = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripButtonBuscar = new System.Windows.Forms.ToolStripButton();
             this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.ColumnId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnRuta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnButtonVer = new System.Windows.Forms.DataGridViewButtonColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.checkBoxNombre = new System.Windows.Forms.CheckBox();
-            this.comboBoxRutas = new System.Windows.Forms.ComboBox();
-            this.checkBoxRuta = new System.Windows.Forms.CheckBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.dateTimePickerHasta = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePickerDesde = new System.Windows.Forms.DateTimePicker();
-            this.checkBoxFecha = new System.Windows.Forms.CheckBox();
-            this.backgroundWorkerConsultarClientes = new System.ComponentModel.BackgroundWorker();
             this.statusRegistrarCliente.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
@@ -66,7 +59,7 @@
             this.toolStripLabelEstado,
             this.toolStripLabelHaciendo,
             this.toolStripProgressBar});
-            this.statusRegistrarCliente.Location = new System.Drawing.Point(0, 536);
+            this.statusRegistrarCliente.Location = new System.Drawing.Point(0, 480);
             this.statusRegistrarCliente.Name = "statusRegistrarCliente";
             this.statusRegistrarCliente.Size = new System.Drawing.Size(640, 22);
             this.statusRegistrarCliente.TabIndex = 29;
@@ -102,6 +95,7 @@
             this.toolStrip1.Size = new System.Drawing.Size(640, 32);
             this.toolStrip1.TabIndex = 30;
             this.toolStrip1.Text = "toolStrip1";
+            this.toolStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip1_ItemClicked);
             // 
             // toolStripLabel1
             // 
@@ -137,14 +131,20 @@
             this.dataGridView.BackgroundColor = System.Drawing.SystemColors.ControlLight;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColumnId,
             this.ColumnNombre,
             this.ColumnRuta,
             this.ColumnButtonVer});
-            this.dataGridView.Location = new System.Drawing.Point(31, 25);
+            this.dataGridView.Location = new System.Drawing.Point(23, 25);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.dataGridView.Size = new System.Drawing.Size(341, 340);
+            this.dataGridView.Size = new System.Drawing.Size(446, 340);
             this.dataGridView.TabIndex = 31;
+            // 
+            // ColumnId
+            // 
+            this.ColumnId.HeaderText = "Id";
+            this.ColumnId.Name = "ColumnId";
             // 
             // ColumnNombre
             // 
@@ -167,9 +167,9 @@
             this.groupBox1.Controls.Add(this.dataGridView);
             this.groupBox1.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.DimGray;
-            this.groupBox1.Location = new System.Drawing.Point(12, 139);
+            this.groupBox1.Location = new System.Drawing.Point(18, 93);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(406, 381);
+            this.groupBox1.Size = new System.Drawing.Size(493, 381);
             this.groupBox1.TabIndex = 32;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Resultado";
@@ -177,18 +177,11 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.checkBoxNombre);
-            this.groupBox2.Controls.Add(this.comboBoxRutas);
-            this.groupBox2.Controls.Add(this.checkBoxRuta);
-            this.groupBox2.Controls.Add(this.label2);
-            this.groupBox2.Controls.Add(this.label1);
-            this.groupBox2.Controls.Add(this.dateTimePickerHasta);
-            this.groupBox2.Controls.Add(this.dateTimePickerDesde);
-            this.groupBox2.Controls.Add(this.checkBoxFecha);
             this.groupBox2.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.Color.DimGray;
             this.groupBox2.Location = new System.Drawing.Point(12, 35);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(387, 98);
+            this.groupBox2.Size = new System.Drawing.Size(387, 52);
             this.groupBox2.TabIndex = 33;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Filtros";
@@ -202,81 +195,13 @@
             this.checkBoxNombre.TabIndex = 38;
             this.checkBoxNombre.Text = "Nombre";
             this.checkBoxNombre.UseVisualStyleBackColor = true;
-            // 
-            // comboBoxRutas
-            // 
-            this.comboBoxRutas.FormattingEnabled = true;
-            this.comboBoxRutas.Location = new System.Drawing.Point(112, 67);
-            this.comboBoxRutas.Name = "comboBoxRutas";
-            this.comboBoxRutas.Size = new System.Drawing.Size(121, 24);
-            this.comboBoxRutas.TabIndex = 37;
-            // 
-            // checkBoxRuta
-            // 
-            this.checkBoxRuta.AutoSize = true;
-            this.checkBoxRuta.Location = new System.Drawing.Point(6, 69);
-            this.checkBoxRuta.Name = "checkBoxRuta";
-            this.checkBoxRuta.Size = new System.Drawing.Size(50, 20);
-            this.checkBoxRuta.TabIndex = 36;
-            this.checkBoxRuta.Text = "Ruta";
-            this.checkBoxRuta.UseVisualStyleBackColor = true;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(217, 47);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(37, 16);
-            this.label2.TabIndex = 35;
-            this.label2.Text = "Hasta";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(69, 47);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 16);
-            this.label1.TabIndex = 34;
-            this.label1.Text = "Desde";
-            // 
-            // dateTimePickerHasta
-            // 
-            this.dateTimePickerHasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePickerHasta.Location = new System.Drawing.Point(261, 43);
-            this.dateTimePickerHasta.Name = "dateTimePickerHasta";
-            this.dateTimePickerHasta.Size = new System.Drawing.Size(95, 20);
-            this.dateTimePickerHasta.TabIndex = 2;
-            // 
-            // dateTimePickerDesde
-            // 
-            this.dateTimePickerDesde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePickerDesde.Location = new System.Drawing.Point(112, 44);
-            this.dateTimePickerDesde.Name = "dateTimePickerDesde";
-            this.dateTimePickerDesde.Size = new System.Drawing.Size(95, 20);
-            this.dateTimePickerDesde.TabIndex = 1;
-            // 
-            // checkBoxFecha
-            // 
-            this.checkBoxFecha.AutoSize = true;
-            this.checkBoxFecha.Location = new System.Drawing.Point(6, 46);
-            this.checkBoxFecha.Name = "checkBoxFecha";
-            this.checkBoxFecha.Size = new System.Drawing.Size(57, 20);
-            this.checkBoxFecha.TabIndex = 0;
-            this.checkBoxFecha.Text = "Fecha";
-            this.checkBoxFecha.UseVisualStyleBackColor = true;
-            // 
-            // backgroundWorkerConsultarClientes
-            // 
-            this.backgroundWorkerConsultarClientes.WorkerReportsProgress = true;
-            this.backgroundWorkerConsultarClientes.WorkerSupportsCancellation = true;
-            this.backgroundWorkerConsultarClientes.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorkerConsultarClientes_DoWork);
-            this.backgroundWorkerConsultarClientes.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorkerConsultarClientes_RunWorkerCompleted);
+            this.checkBoxNombre.CheckedChanged += new System.EventHandler(this.checkBoxNombre_CheckedChanged);
             // 
             // ConsultrarClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(640, 558);
+            this.ClientSize = new System.Drawing.Size(640, 502);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.toolStrip1);
@@ -317,17 +242,10 @@
         private System.Windows.Forms.DataGridView dataGridView;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DateTimePicker dateTimePickerHasta;
-        private System.Windows.Forms.DateTimePicker dateTimePickerDesde;
-        private System.Windows.Forms.CheckBox checkBoxFecha;
-        private System.Windows.Forms.CheckBox checkBoxRuta;
         private System.Windows.Forms.CheckBox checkBoxNombre;
-        private System.Windows.Forms.ComboBox comboBoxRutas;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnId;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnRuta;
         private System.Windows.Forms.DataGridViewButtonColumn ColumnButtonVer;
-        private System.ComponentModel.BackgroundWorker backgroundWorkerConsultarClientes;
     }
 }

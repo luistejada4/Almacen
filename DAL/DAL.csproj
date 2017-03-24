@@ -53,9 +53,9 @@
   <ItemGroup>
     <Compile Include="Database.cs" />
     <Compile Include="IRepository.cs" />
-    <Compile Include="Migrations\201703230445256_UpDateIdDeletes.cs" />
-    <Compile Include="Migrations\201703230445256_UpDateIdDeletes.Designer.cs">
-      <DependentUpon>201703230445256_UpDateIdDeletes.cs</DependentUpon>
+    <Compile Include="Migrations\201703242009413_init.cs" />
+    <Compile Include="Migrations\201703242009413_init.Designer.cs">
+      <DependentUpon>201703242009413_init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -77,15 +77,15 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201703230445256_UpDateIdDeletes.resx">
-      <DependentUpon>201703230445256_UpDateIdDeletes.cs</DependentUpon>
-    </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Entidades\Entidades.csproj">
       <Project>{2335D203-3F01-46A5-8D83-EA2D8DAAA56A}</Project>
       <Name>Entidades</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201703242009413_init.resx">
+      <DependentUpon>201703242009413_init.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

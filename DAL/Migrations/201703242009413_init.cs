@@ -3,7 +3,7 @@ namespace DAL.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class UpDateIdDeletes : DbMigration
+    public partial class init : DbMigration
     {
         public override void Up()
         {
@@ -17,7 +17,6 @@ namespace DAL.Migrations
                         Telefono = c.String(),
                         Cedula = c.String(),
                         Fecha = c.DateTime(nullable: false),
-                        FacturaId = c.Int(nullable: false),
                         RutaId = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.ClienteId)
@@ -54,14 +53,14 @@ namespace DAL.Migrations
                 "dbo.ProductoFactura",
                 c => new
                     {
-                        ProductoId = c.Int(nullable: false),
                         FacturaId = c.Int(nullable: false),
+                        ProductoId = c.Int(nullable: false),
                     })
-                .PrimaryKey(t => new { t.ProductoId, t.FacturaId })
+                .PrimaryKey(t => new { t.FacturaId, t.ProductoId })
                 .ForeignKey("dbo.Factura", t => t.FacturaId, cascadeDelete: true)
                 .ForeignKey("dbo.Producto", t => t.ProductoId, cascadeDelete: true)
-                .Index(t => t.ProductoId)
-                .Index(t => t.FacturaId);
+                .Index(t => t.FacturaId)
+                .Index(t => t.ProductoId);
             
             CreateTable(
                 "dbo.Producto",
@@ -94,8 +93,8 @@ namespace DAL.Migrations
             DropForeignKey("dbo.ProductoFactura", "FacturaId", "dbo.Factura");
             DropForeignKey("dbo.Factura", "FormaDePagoId", "dbo.FormaDePago");
             DropForeignKey("dbo.Factura", "ClienteId", "dbo.Cliente");
-            DropIndex("dbo.ProductoFactura", new[] { "FacturaId" });
             DropIndex("dbo.ProductoFactura", new[] { "ProductoId" });
+            DropIndex("dbo.ProductoFactura", new[] { "FacturaId" });
             DropIndex("dbo.Factura", new[] { "FormaDePagoId" });
             DropIndex("dbo.Factura", new[] { "ClienteId" });
             DropIndex("dbo.Cliente", new[] { "RutaId" });

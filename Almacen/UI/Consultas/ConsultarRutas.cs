@@ -26,7 +26,7 @@ namespace AlmacenLT.UI.Consultas
 
         private void ConsultarRutas_Load(object sender, EventArgs e)
         {
-            if(BLL.RutasBLL.GetList(x => x.RutaId > 0, false))
+            if(BLL.RutasBLL.GetList(x => x.RutaId > 0, true))
             {
                 comboBoxRutas.DataSource = RutasBLL.rutaReturnedList;
                 comboBoxRutas.DisplayMember = "Lugar";
@@ -36,9 +36,10 @@ namespace AlmacenLT.UI.Consultas
 
         private void buttonBuscar_Click(object sender, EventArgs e)
         {
-
-            RutasBLL.Buscar(x => x.RutaId == 2, false);
-            
+            dataGridView1.Rows.Clear();
+            dataGridView1.Refresh();
+            int rutaId = Convert.ToInt32(comboBoxRutas.SelectedValue);
+            RutasBLL.Buscar(x => x.RutaId == rutaId, true);
             foreach (var cliente in RutasBLL.rutaReturned.Clientes)
             {
                 DataGridViewRow row = (DataGridViewRow)dataGridView1.Rows[0].Clone();
