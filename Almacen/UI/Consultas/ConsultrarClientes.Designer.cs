@@ -39,13 +39,12 @@
             this.toolStripTextBoxSearch = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripButtonBuscar = new System.Windows.Forms.ToolStripButton();
             this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.ColumnId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnRuta = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnButtonVer = new System.Windows.Forms.DataGridViewButtonColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.checkBoxNombre = new System.Windows.Forms.CheckBox();
+            this.ColumnId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnRuta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statusRegistrarCliente.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
@@ -61,7 +60,7 @@
             this.toolStripProgressBar});
             this.statusRegistrarCliente.Location = new System.Drawing.Point(0, 480);
             this.statusRegistrarCliente.Name = "statusRegistrarCliente";
-            this.statusRegistrarCliente.Size = new System.Drawing.Size(640, 22);
+            this.statusRegistrarCliente.Size = new System.Drawing.Size(427, 22);
             this.statusRegistrarCliente.TabIndex = 29;
             // 
             // toolStripLabelEstado
@@ -92,7 +91,7 @@
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.toolStrip1.Size = new System.Drawing.Size(640, 32);
+            this.toolStrip1.Size = new System.Drawing.Size(427, 32);
             this.toolStrip1.TabIndex = 30;
             this.toolStrip1.Text = "toolStrip1";
             this.toolStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip1_ItemClicked);
@@ -133,34 +132,12 @@
             this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ColumnId,
             this.ColumnNombre,
-            this.ColumnRuta,
-            this.ColumnButtonVer});
+            this.ColumnRuta});
             this.dataGridView.Location = new System.Drawing.Point(23, 25);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.dataGridView.Size = new System.Drawing.Size(446, 340);
+            this.dataGridView.Size = new System.Drawing.Size(343, 340);
             this.dataGridView.TabIndex = 31;
-            // 
-            // ColumnId
-            // 
-            this.ColumnId.HeaderText = "Id";
-            this.ColumnId.Name = "ColumnId";
-            // 
-            // ColumnNombre
-            // 
-            this.ColumnNombre.HeaderText = "Nombre";
-            this.ColumnNombre.Name = "ColumnNombre";
-            // 
-            // ColumnRuta
-            // 
-            this.ColumnRuta.HeaderText = "Ruta";
-            this.ColumnRuta.Name = "ColumnRuta";
-            // 
-            // ColumnButtonVer
-            // 
-            this.ColumnButtonVer.HeaderText = "Ver detalle";
-            this.ColumnButtonVer.Name = "ColumnButtonVer";
-            this.ColumnButtonVer.Text = "Ver";
             // 
             // groupBox1
             // 
@@ -169,7 +146,7 @@
             this.groupBox1.ForeColor = System.Drawing.Color.DimGray;
             this.groupBox1.Location = new System.Drawing.Point(18, 93);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(493, 381);
+            this.groupBox1.Size = new System.Drawing.Size(391, 381);
             this.groupBox1.TabIndex = 32;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Resultado";
@@ -197,11 +174,26 @@
             this.checkBoxNombre.UseVisualStyleBackColor = true;
             this.checkBoxNombre.CheckedChanged += new System.EventHandler(this.checkBoxNombre_CheckedChanged);
             // 
+            // ColumnId
+            // 
+            this.ColumnId.HeaderText = "Id";
+            this.ColumnId.Name = "ColumnId";
+            // 
+            // ColumnNombre
+            // 
+            this.ColumnNombre.HeaderText = "Nombre";
+            this.ColumnNombre.Name = "ColumnNombre";
+            // 
+            // ColumnRuta
+            // 
+            this.ColumnRuta.HeaderText = "Ruta";
+            this.ColumnRuta.Name = "ColumnRuta";
+            // 
             // ConsultrarClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(640, 502);
+            this.ClientSize = new System.Drawing.Size(427, 502);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.toolStrip1);
@@ -246,6 +238,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnId;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnRuta;
-        private System.Windows.Forms.DataGridViewButtonColumn ColumnButtonVer;
     }
 }

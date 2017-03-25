@@ -52,7 +52,16 @@ namespace AlmacenLT
             else
             {
                 textBoxNombre.AutoCompleteCustomSource.Clear();
+                dataGridView.Rows.Clear();
+                dataGridView.Refresh();
             }
+        }
+
+        private void LimpiarFactura()
+        {
+            UtilidadesFormularios.Limpiar(new List<TextBox> { textBoxNombre }, new List<MaskedTextBox> { maskedTextBoxId }, new List<ComboBox> { comboBoxFormaDePago, comboBoxProductos });
+            dataGridView.Rows.Clear();
+            dataGridView.Refresh();
         }
         private void CalcularFactura()
         {
@@ -232,6 +241,29 @@ namespace AlmacenLT
                     CalcularFactura();
                 }
             }
+        }
+
+        private void salirToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            VerFacturacion(false);
+        }
+
+        private void buttonEliminar_Click(object sender, EventArgs e)
+        {
+            if(UtilidadesFormularios.Validar(maskedTextBoxId))
+            {
+                int id = int.Parse(maskedTextBoxId.Text);
+                if(FacturasBLL.Buscar(x=> x.FacturaId == id, false))
+                {
+                    FacturasBLL.Eliminar(FacturasBLL.facturaReturned);
+                    LimpiarFactura();
+                }
+            }
+        }
+
+        private void buttonNuevo_Click(object sender, EventArgs e)
+        {
+            LimpiarFactura();
         }
     }
 }

@@ -39,15 +39,9 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.ColumnCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnButton = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.ColumnFacturaId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnSubTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.statusRegistrarCliente.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // statusRegistrarCliente
@@ -58,7 +52,7 @@
             this.toolStripProgressBar});
             this.statusRegistrarCliente.Location = new System.Drawing.Point(0, 527);
             this.statusRegistrarCliente.Name = "statusRegistrarCliente";
-            this.statusRegistrarCliente.Size = new System.Drawing.Size(707, 22);
+            this.statusRegistrarCliente.Size = new System.Drawing.Size(366, 22);
             this.statusRegistrarCliente.TabIndex = 34;
             // 
             // toolStripLabelEstado
@@ -119,11 +113,10 @@
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ColumnCliente,
-            this.ColumnButton});
+            this.ColumnCliente});
             this.dataGridView1.Location = new System.Drawing.Point(22, 108);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(245, 416);
+            this.dataGridView1.Size = new System.Drawing.Size(144, 416);
             this.dataGridView1.TabIndex = 40;
             // 
             // groupBox1
@@ -143,47 +136,11 @@
             this.ColumnCliente.HeaderText = "Cliente";
             this.ColumnCliente.Name = "ColumnCliente";
             // 
-            // ColumnButton
-            // 
-            this.ColumnButton.HeaderText = "Detalles";
-            this.ColumnButton.Name = "ColumnButton";
-            this.ColumnButton.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.ColumnButton.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
-            // dataGridView2
-            // 
-            this.dataGridView2.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ColumnFacturaId,
-            this.ColumnSubTotal,
-            this.ColumnTotal});
-            this.dataGridView2.Location = new System.Drawing.Point(283, 108);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(344, 416);
-            this.dataGridView2.TabIndex = 42;
-            // 
-            // ColumnFacturaId
-            // 
-            this.ColumnFacturaId.HeaderText = "FacturaId";
-            this.ColumnFacturaId.Name = "ColumnFacturaId";
-            // 
-            // ColumnSubTotal
-            // 
-            this.ColumnSubTotal.HeaderText = "SubTotal";
-            this.ColumnSubTotal.Name = "ColumnSubTotal";
-            // 
-            // ColumnTotal
-            // 
-            this.ColumnTotal.HeaderText = "Total";
-            this.ColumnTotal.Name = "ColumnTotal";
-            // 
             // ConsultarRutas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(707, 549);
-            this.Controls.Add(this.dataGridView2);
+            this.ClientSize = new System.Drawing.Size(366, 549);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.statusRegistrarCliente);
@@ -200,7 +157,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -217,10 +173,5 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCliente;
-        private System.Windows.Forms.DataGridViewButtonColumn ColumnButton;
-        private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnFacturaId;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSubTotal;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ColumnTotal;
     }
 }

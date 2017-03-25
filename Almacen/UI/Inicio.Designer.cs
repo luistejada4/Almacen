@@ -34,6 +34,7 @@
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nuevaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.salirToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.registrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rutasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -78,6 +79,11 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.dataGridView = new System.Windows.Forms.DataGridView();
+            this.ColumnProductoId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColumnSubTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.textBoxNombre = new System.Windows.Forms.TextBox();
             this.buttonBuscar = new System.Windows.Forms.Button();
@@ -86,11 +92,6 @@
             this.toolStripLabelEstado = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripLabelHaciendo = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripProgressBar = new System.Windows.Forms.ToolStripProgressBar();
-            this.ColumnProductoId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnProducto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ColumnSubTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStripAlmacenLT.SuspendLayout();
             this.toolStripAlmacenLT.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -136,7 +137,8 @@
             // consultasToolStripMenuItem
             // 
             this.consultasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.nuevaToolStripMenuItem});
+            this.nuevaToolStripMenuItem,
+            this.salirToolStripMenuItem1});
             this.consultasToolStripMenuItem.Name = "consultasToolStripMenuItem";
             this.consultasToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
             this.consultasToolStripMenuItem.Text = "Factura";
@@ -148,6 +150,14 @@
             this.nuevaToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
             this.nuevaToolStripMenuItem.Text = "Nueva";
             this.nuevaToolStripMenuItem.Click += new System.EventHandler(this.nuevaToolStripMenuItem_Click);
+            // 
+            // salirToolStripMenuItem1
+            // 
+            this.salirToolStripMenuItem1.Image = global::Almacen.Properties.Resources.Close_Window_40;
+            this.salirToolStripMenuItem1.Name = "salirToolStripMenuItem1";
+            this.salirToolStripMenuItem1.Size = new System.Drawing.Size(108, 22);
+            this.salirToolStripMenuItem1.Text = "Salir";
+            this.salirToolStripMenuItem1.Click += new System.EventHandler(this.salirToolStripMenuItem1_Click);
             // 
             // registrosToolStripMenuItem
             // 
@@ -379,6 +389,7 @@
             this.buttonEliminar.Text = "Eliminar";
             this.buttonEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonEliminar.UseVisualStyleBackColor = true;
+            this.buttonEliminar.Click += new System.EventHandler(this.buttonEliminar_Click);
             // 
             // buttonGuardar
             // 
@@ -410,6 +421,7 @@
             this.buttonNuevo.Text = "Nuevo";
             this.buttonNuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonNuevo.UseVisualStyleBackColor = true;
+            this.buttonNuevo.Click += new System.EventHandler(this.buttonNuevo_Click);
             // 
             // groupBoxTotal
             // 
@@ -610,6 +622,35 @@
             this.dataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellEndEdit);
             this.dataGridView.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dataGridView_RowsAdded);
             // 
+            // ColumnProductoId
+            // 
+            this.ColumnProductoId.HeaderText = "ProductoId";
+            this.ColumnProductoId.Name = "ColumnProductoId";
+            // 
+            // ColumnProducto
+            // 
+            this.ColumnProducto.HeaderText = "Producto";
+            this.ColumnProducto.Name = "ColumnProducto";
+            this.ColumnProducto.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.ColumnProducto.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.ColumnProducto.ToolTipText = "Elige un producto";
+            // 
+            // ColumnNombre
+            // 
+            this.ColumnNombre.HeaderText = "Cantidad";
+            this.ColumnNombre.Name = "ColumnNombre";
+            // 
+            // ColumnPrecio
+            // 
+            this.ColumnPrecio.HeaderText = "Precio";
+            this.ColumnPrecio.Name = "ColumnPrecio";
+            // 
+            // ColumnSubTotal
+            // 
+            this.ColumnSubTotal.HeaderText = "SubTotal";
+            this.ColumnSubTotal.Name = "ColumnSubTotal";
+            this.ColumnSubTotal.ReadOnly = true;
+            // 
             // dateTimePicker1
             // 
             this.dateTimePicker1.CalendarFont = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -685,35 +726,6 @@
             this.toolStripProgressBar.Name = "toolStripProgressBar";
             this.toolStripProgressBar.Size = new System.Drawing.Size(100, 16);
             this.toolStripProgressBar.Value = 1;
-            // 
-            // ColumnProductoId
-            // 
-            this.ColumnProductoId.HeaderText = "ProductoId";
-            this.ColumnProductoId.Name = "ColumnProductoId";
-            // 
-            // ColumnProducto
-            // 
-            this.ColumnProducto.HeaderText = "Producto";
-            this.ColumnProducto.Name = "ColumnProducto";
-            this.ColumnProducto.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.ColumnProducto.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.ColumnProducto.ToolTipText = "Elige un producto";
-            // 
-            // ColumnNombre
-            // 
-            this.ColumnNombre.HeaderText = "Cantidad";
-            this.ColumnNombre.Name = "ColumnNombre";
-            // 
-            // ColumnPrecio
-            // 
-            this.ColumnPrecio.HeaderText = "Precio";
-            this.ColumnPrecio.Name = "ColumnPrecio";
-            // 
-            // ColumnSubTotal
-            // 
-            this.ColumnSubTotal.HeaderText = "SubTotal";
-            this.ColumnSubTotal.Name = "ColumnSubTotal";
-            this.ColumnSubTotal.ReadOnly = true;
             // 
             // Inicio
             // 
@@ -814,6 +826,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnPrecio;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSubTotal;
+        private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem1;
     }
 }
 
