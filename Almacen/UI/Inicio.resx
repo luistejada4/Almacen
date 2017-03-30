@@ -123,38 +123,10 @@
   <metadata name="toolStripAlmacenLT.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>191, 18</value>
   </metadata>
-  <metadata name="ColumnProductoId.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="ColumnProducto.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="ColumnNombre.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="ColumnPrecio.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <metadata name="ColumnSubTotal.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="buttonBuscar.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
-        YQUAAAGZSURBVDhPYyAFuHUeC4iafm4yCLt3nPCHCpMOkmZfnFO99tbdg3e+fL3/4d9/EAaxQWIgOagy
-        4kDWgsu7D9398hdmEDoGyYHUQJXjB3EzL8w4eOfrb2wGIWOQmtjp56dBteEGbZvv3cNmADZcs+bWPag2
-        7CBs6ulIoHf+YdOMDQPD9GfotDNRUO2YIG76hRnYNOLDID1Q7ZiA6gaCnE+il3+BggmqHTuoXXfrETbN
-        2HDt2tsPoNpwg5jp5xfsv/0ZqwHIGJRsQEkMqg07CJxyQS13xb3LJSvv/D9w5wtWg0CYqITtO+G8acqC
-        W49mnPn7P33JnT0Jsy4uIjvrBU27aAEzLGHu9Use7ccVoFKQwmHa+SkgDGJDhXGDiGlXbVMW3n4OMixp
-        /s0bLr2nDaFSpAOQYWmLb78GGZa84OY9t56zxlAp0kHYtEsBJeufgb2ZsvDW44BJF8ygUqSDkCkXfApX
-        P34JMix/9aPHIVMvW0GlyANhUy929x3+9r9s/fNnYXOu2UGFyQcO/ecFgIb2ALEvVIgCwMAAAGAYXK8x
-        jE4hAAAAAElFTkSuQmCC
-</value>
-  </data>
   <metadata name="statusRegistrarCliente.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>412, 17</value>
   </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         AAABAAMAEBAAAAAAIABoBAAANgAAACAgAAAAACAAqBAAAJ4EAAAwMAAAAAAgAKglAABGFQAAKAAAABAA

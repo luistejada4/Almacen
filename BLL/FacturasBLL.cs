@@ -32,6 +32,7 @@ namespace BLL
                 {
                    
                     context.Entry(producto).State = System.Data.Entity.EntityState.Modified;
+                    
                 }
                 context.SaveChanges();
                 return true;

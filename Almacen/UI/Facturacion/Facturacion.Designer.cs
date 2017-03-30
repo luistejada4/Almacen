@@ -32,6 +32,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBoxBotones = new System.Windows.Forms.GroupBox();
             this.buttonImprimir = new System.Windows.Forms.Button();
+            this.buttonPagar = new System.Windows.Forms.Button();
             this.buttonEliminar = new System.Windows.Forms.Button();
             this.buttonGuardar = new System.Windows.Forms.Button();
             this.buttonNuevo = new System.Windows.Forms.Button();
@@ -39,7 +40,9 @@
             this.labelTotal = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBoxFactura = new System.Windows.Forms.GroupBox();
-            this.buttonPagar = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.labelEstado = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.groupBoxInicial = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
             this.maskedTextBoxInicial = new System.Windows.Forms.MaskedTextBox();
@@ -69,6 +72,7 @@
             this.groupBoxBotones.SuspendLayout();
             this.groupBoxTotal.SuspendLayout();
             this.groupBoxFactura.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.groupBoxInicial.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCantidad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
@@ -86,31 +90,46 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(679, 465);
+            this.panel1.Size = new System.Drawing.Size(821, 465);
             this.panel1.TabIndex = 2;
             // 
             // groupBoxBotones
             // 
             this.groupBoxBotones.Controls.Add(this.buttonImprimir);
+            this.groupBoxBotones.Controls.Add(this.buttonPagar);
             this.groupBoxBotones.Controls.Add(this.buttonEliminar);
             this.groupBoxBotones.Controls.Add(this.buttonGuardar);
             this.groupBoxBotones.Controls.Add(this.buttonNuevo);
             this.groupBoxBotones.Dock = System.Windows.Forms.DockStyle.Right;
-            this.groupBoxBotones.Location = new System.Drawing.Point(147, 328);
+            this.groupBoxBotones.Location = new System.Drawing.Point(211, 328);
             this.groupBoxBotones.Name = "groupBoxBotones";
-            this.groupBoxBotones.Size = new System.Drawing.Size(333, 135);
+            this.groupBoxBotones.Size = new System.Drawing.Size(411, 135);
             this.groupBoxBotones.TabIndex = 16;
             this.groupBoxBotones.TabStop = false;
             // 
             // buttonImprimir
             // 
-            this.buttonImprimir.Location = new System.Drawing.Point(249, 12);
+            this.buttonImprimir.Location = new System.Drawing.Point(330, 12);
             this.buttonImprimir.Name = "buttonImprimir";
             this.buttonImprimir.Size = new System.Drawing.Size(75, 35);
             this.buttonImprimir.TabIndex = 40;
             this.buttonImprimir.Text = "Imprimir";
             this.buttonImprimir.UseVisualStyleBackColor = true;
             this.buttonImprimir.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // buttonPagar
+            // 
+            this.buttonPagar.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonPagar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.buttonPagar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonPagar.Location = new System.Drawing.Point(249, 12);
+            this.buttonPagar.Name = "buttonPagar";
+            this.buttonPagar.Size = new System.Drawing.Size(75, 35);
+            this.buttonPagar.TabIndex = 41;
+            this.buttonPagar.Text = "Pagos";
+            this.buttonPagar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonPagar.UseVisualStyleBackColor = true;
+            this.buttonPagar.Click += new System.EventHandler(this.buttonPagar_Click);
             // 
             // buttonEliminar
             // 
@@ -161,7 +180,7 @@
             this.groupBoxTotal.Controls.Add(this.labelTotal);
             this.groupBoxTotal.Controls.Add(this.label2);
             this.groupBoxTotal.Dock = System.Windows.Forms.DockStyle.Right;
-            this.groupBoxTotal.Location = new System.Drawing.Point(480, 328);
+            this.groupBoxTotal.Location = new System.Drawing.Point(622, 328);
             this.groupBoxTotal.Name = "groupBoxTotal";
             this.groupBoxTotal.Size = new System.Drawing.Size(197, 135);
             this.groupBoxTotal.TabIndex = 15;
@@ -192,7 +211,7 @@
             // 
             // groupBoxFactura
             // 
-            this.groupBoxFactura.Controls.Add(this.buttonPagar);
+            this.groupBoxFactura.Controls.Add(this.groupBox3);
             this.groupBoxFactura.Controls.Add(this.groupBoxInicial);
             this.groupBoxFactura.Controls.Add(this.label9);
             this.groupBoxFactura.Controls.Add(this.comboBoxFormaDePago);
@@ -213,24 +232,39 @@
             this.groupBoxFactura.ForeColor = System.Drawing.Color.DimGray;
             this.groupBoxFactura.Location = new System.Drawing.Point(0, 0);
             this.groupBoxFactura.Name = "groupBoxFactura";
-            this.groupBoxFactura.Size = new System.Drawing.Size(677, 328);
+            this.groupBoxFactura.Size = new System.Drawing.Size(819, 328);
             this.groupBoxFactura.TabIndex = 13;
             this.groupBoxFactura.TabStop = false;
             this.groupBoxFactura.Text = "Facturacion";
             // 
-            // buttonPagar
+            // groupBox3
             // 
-            this.buttonPagar.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonPagar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.buttonPagar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonPagar.Location = new System.Drawing.Point(435, 19);
-            this.buttonPagar.Name = "buttonPagar";
-            this.buttonPagar.Size = new System.Drawing.Size(75, 35);
-            this.buttonPagar.TabIndex = 41;
-            this.buttonPagar.Text = "Pagar";
-            this.buttonPagar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonPagar.UseVisualStyleBackColor = true;
-            this.buttonPagar.Click += new System.EventHandler(this.buttonPagar_Click);
+            this.groupBox3.Controls.Add(this.labelEstado);
+            this.groupBox3.Controls.Add(this.label4);
+            this.groupBox3.Location = new System.Drawing.Point(608, 19);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(200, 78);
+            this.groupBox3.TabIndex = 43;
+            this.groupBox3.TabStop = false;
+            // 
+            // labelEstado
+            // 
+            this.labelEstado.AutoSize = true;
+            this.labelEstado.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelEstado.Location = new System.Drawing.Point(78, 23);
+            this.labelEstado.Name = "labelEstado";
+            this.labelEstado.Size = new System.Drawing.Size(0, 22);
+            this.labelEstado.TabIndex = 1;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(6, 23);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(66, 22);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Estado:";
             // 
             // groupBoxInicial
             // 
@@ -378,7 +412,7 @@
             this.dataGridView.Location = new System.Drawing.Point(3, 175);
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.dataGridView.Size = new System.Drawing.Size(671, 150);
+            this.dataGridView.Size = new System.Drawing.Size(813, 150);
             this.dataGridView.TabIndex = 32;
             this.dataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellEndEdit);
             this.dataGridView.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dataGridView_RowsAdded);
@@ -465,7 +499,7 @@
             this.toolStripLabelHaciendo});
             this.statusRegistrarCliente.Location = new System.Drawing.Point(0, 443);
             this.statusRegistrarCliente.Name = "statusRegistrarCliente";
-            this.statusRegistrarCliente.Size = new System.Drawing.Size(679, 22);
+            this.statusRegistrarCliente.Size = new System.Drawing.Size(821, 22);
             this.statusRegistrarCliente.TabIndex = 3;
             this.statusRegistrarCliente.Text = "statusStrip1";
             // 
@@ -485,14 +519,17 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(679, 465);
+            this.ClientSize = new System.Drawing.Size(821, 465);
             this.Controls.Add(this.statusRegistrarCliente);
             this.Controls.Add(this.panel1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Facturacion";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "AlmacenLT";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Inicio_Load);
             this.panel1.ResumeLayout(false);
             this.groupBoxBotones.ResumeLayout(false);
@@ -500,6 +537,8 @@
             this.groupBoxTotal.PerformLayout();
             this.groupBoxFactura.ResumeLayout(false);
             this.groupBoxFactura.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.groupBoxInicial.ResumeLayout(false);
             this.groupBoxInicial.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCantidad)).EndInit();
@@ -548,6 +587,9 @@
         private System.Windows.Forms.MaskedTextBox maskedTextBoxInicial;
         private System.Windows.Forms.GroupBox groupBoxInicial;
         private System.Windows.Forms.Button buttonPagar;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Label labelEstado;
+        private System.Windows.Forms.Label label4;
     }
 }
 

@@ -33,17 +33,40 @@ namespace AlmacenLT
             UtilidadesFormularios.Limpiar(new List<TextBox> { textBoxNombre }, new List<MaskedTextBox> { maskedTextBoxId }, new List<ComboBox> { comboBoxFormaDePago, comboBoxProductos });
             dataGridView.Rows.Clear();
             dataGridView.Refresh();
+            labelEstado.Text = "";
+        }
+        private void VerificarPagos(Factura factura)
+        {
+            double total = 0;
+
+            foreach (var pago in factura.Pagos)
+            {
+                total += pago.Monto;
+            }
+            if(total < factura.Total)
+            {
+                labelEstado.Text = "Debe: " + (factura.Total - total).ToString();
+                labelEstado.ForeColor = Color.Red;
+            }
+            else
+            {
+                labelEstado.Text = "Pagada";
+                labelEstado.ForeColor = Color.Green;
+            }
         }
         private void CalcularFactura()
         {
+
             double total = 0;
             foreach (DataGridViewRow row in dataGridView.Rows)
             {
                 total += Convert.ToDouble(row.Cells[4].Value);
             }
+
             labelTotal.Text = total.ToString();
 
         }
+
         private void Inicio_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'databaseAlmacenDataSet.Productos' table. You can move, or remove it, as needed.
@@ -110,6 +133,7 @@ namespace AlmacenLT
                 row.Cells[4].Value = Convert.ToDouble(row.Cells[2].Value) * Convert.ToDouble(row.Cells[3].Value);
                 dataGridView.Rows.Add(row);
             }
+            CalcularFactura();
         }
 
         private void buttonGuardar_Click(object sender, EventArgs e)
@@ -148,14 +172,18 @@ namespace AlmacenLT
                             int productoCantidad = Convert.ToInt32(dataGridView.Rows[i].Cells[2].Value);
                             factura.Productos.Add(new ProductoFactura(productoId, factura.FacturaId, productoCantidad, Convert.ToInt32(dataGridView.Rows[i].Cells[3].Value)));                                      
                             
-                        }
+                        }                       
                     }
+                    factura.Pagos = null;                  
 
                     if(FacturasBLL.Modificar(factura))
                     {
                         maskedTextBoxId.Text = FacturasBLL.facturaReturned.FacturaId.ToString();
+                        CalcularFactura();
                     }
                 }
+                FacturasBLL.Buscar(x => x.FacturaId == factura.FacturaId, true);
+                VerificarPagos(FacturasBLL.facturaReturned);
             }
             else
             {
@@ -165,14 +193,15 @@ namespace AlmacenLT
 
         private void buttonBuscar_Click(object sender, EventArgs e)
         {
-            dataGridView.Rows.Clear();
-            dataGridView.Refresh();
+            
             if(UtilidadesFormularios.Validar(maskedTextBoxId))
             {
                 int id = int.Parse(maskedTextBoxId.Text);
                 
                 if(FacturasBLL.Buscar(x=> x.FacturaId == id, true))
                 {
+                    dataGridView.Rows.Clear();
+                    dataGridView.Refresh();
                     Factura factura = FacturasBLL.facturaReturned;
                     textBoxNombre.Text = factura.Cliente.Nombres;
                     dateTimePicker1.Value = factura.Fecha;
@@ -189,6 +218,7 @@ namespace AlmacenLT
                         dataGridView.Rows.Add(row);
                     }
                     CalcularFactura();
+                    VerificarPagos(factura);
                 }
             }
         }
