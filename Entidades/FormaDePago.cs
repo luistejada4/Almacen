@@ -14,6 +14,7 @@ namespace Entidades
 
         public string Descripcion { get; set; }
 
+        public virtual List<Factura> Facturas {get; set;}
 
 
         public FormaDePago()

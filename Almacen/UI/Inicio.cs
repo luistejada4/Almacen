@@ -1,4 +1,7 @@
-﻿using AlmacenLT.UI.Consultas;
+﻿using Almacen.UI;
+using Almacen.UI.Facturacion;
+using Almacen.UI.Registros;
+using AlmacenLT.UI.Consultas;
 using AlmacenLT.UI.Registros;
 using AlmacenLT.Utilidades;
 using BLL;
@@ -71,7 +74,7 @@ namespace AlmacenLT
                 total += Convert.ToDouble(row.Cells[4].Value);
             }
             labelTotal.Text = total.ToString();
-            labelSubTotal.Text = total.ToString();
+
         }
         private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -98,11 +101,6 @@ namespace AlmacenLT
             new RegistrarProductos().ShowDialog(this);
         }
 
-        private void tiposDePagosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            new RegistrarFormaDePagos().ShowDialog(this);
-        }
-
         private void clientesToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             new ConsultrarClientes().ShowDialog(this);
@@ -123,12 +121,13 @@ namespace AlmacenLT
             // TODO: This line of code loads data into the 'databaseAlmacenDataSet.Productos' table. You can move, or remove it, as needed.
 
             VerFacturacion(false);
+            
 
         }
 
         private void nuevaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            VerFacturacion(true);
+            new Facturacion().ShowDialog(this);
         }
 
         private void salirToolStripMenuItem_Click(object sender, EventArgs e)
@@ -152,14 +151,25 @@ namespace AlmacenLT
         {
             DataGridViewRow row = (DataGridViewRow)dataGridView.Rows[0].Clone();
             Producto producto = (Producto)comboBoxProductos.SelectedItem;
-            row.Cells[0].Value = producto.ProductoId;
-            row.Cells[1].Value = producto.Nombre;
-            row.Cells[2].Value = numericUpDownCantidad.Value;
-            row.Cells[3].Value = producto.Precio;
-            row.Cells[4].Value = Convert.ToDouble(row.Cells[2].Value) * Convert.ToDouble(row.Cells[3].Value);
-            dataGridView.Rows.Add(row);
 
-
+            bool inRow = false;
+            foreach (DataGridViewRow productoRow in dataGridView.Rows)
+            {
+                if(Convert.ToInt32(productoRow.Cells[0].Value) == producto.ProductoId)
+                {
+                    productoRow.Cells[2].Value = Convert.ToInt32(productoRow.Cells[2].Value) + numericUpDownCantidad.Value;
+                    inRow = true;
+                }
+            }
+            if (!inRow)
+            {
+                row.Cells[0].Value = producto.ProductoId;
+                row.Cells[1].Value = producto.Nombre;
+                row.Cells[2].Value = numericUpDownCantidad.Value;
+                row.Cells[3].Value = producto.Precio;
+                row.Cells[4].Value = Convert.ToDouble(row.Cells[2].Value) * Convert.ToDouble(row.Cells[3].Value);
+                dataGridView.Rows.Add(row);
+            }
         }
 
         private void buttonGuardar_Click(object sender, EventArgs e)
@@ -168,7 +178,7 @@ namespace AlmacenLT
             {
                 int id = 0;
                 int.TryParse(maskedTextBoxId.Text, out id);
-                Factura factura = new Factura(id, ClientesBLL.clienteReturned.ClienteId, ((FormaDePago)comboBoxFormaDePago.SelectedItem).FormaDePagoId, DateTime.Now, float.Parse(labelSubTotal.Text), float.Parse(labelTotal.Text));
+                Factura factura = new Factura(id, ClientesBLL.clienteReturned.ClienteId, ((FormaDePago)comboBoxFormaDePago.SelectedItem).FormaDePagoId, DateTime.Now, float.Parse(labelTotal.Text), 1);
 
                
 
@@ -264,6 +274,60 @@ namespace AlmacenLT
         private void buttonNuevo_Click(object sender, EventArgs e)
         {
             LimpiarFactura();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
+            if(UtilidadesFormularios.Validar(maskedTextBoxId))
+            {
+                var ventana = new ReporteFactura();
+                int facturaId = int.Parse(maskedTextBoxId.Text);
+                FacturasBLL.Buscar(x => x.FacturaId == facturaId, true);
+                ventana.Factura = FacturasBLL.facturaReturned;
+                ventana.cliente = FacturasBLL.facturaReturned.Cliente;
+                List<Producto> productos = new List<Producto>();
+                foreach (var productosFacturas in FacturasBLL.facturaReturned.Productos)
+                {
+                    productosFacturas.Producto.Costo = productosFacturas.Precio;
+                    productos.Add(productosFacturas.Producto);
+                }
+
+                ventana.lista = productos;
+                ventana.Show();
+            }
+
+        }
+
+        private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new RegistrarUsuario().ShowDialog(this);
+        }
+
+        private void comboBoxFormaDePago_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(((ComboBox)sender).SelectedIndex == 0)
+            {
+                groupBoxInicial.Visible = true;
+            }
+            else
+            {
+                groupBoxInicial.Visible = false;
+            }
+        }
+
+        private void groupBoxTotal_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonPagar_Click(object sender, EventArgs e)
+        {
+            if (UtilidadesFormularios.Validar(maskedTextBoxId))
+            {
+                int id = int.Parse(maskedTextBoxId.Text);
+                new PagarFactura(id).ShowDialog(this);
+            }
         }
     }
 }

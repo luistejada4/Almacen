@@ -28,7 +28,7 @@ namespace AlmacenLT.UI.Consultas
                 DataGridViewRow row = (DataGridViewRow)dataGridView.Rows[0].Clone();
                 row.Cells[0].Value = producto.ProductoId;
                 row.Cells[1].Value = producto.Nombre;
-                row.Cells[2].Value = producto.Cantidad;
+
                 row.Cells[3].Value = producto.Costo;
                 row.Cells[4].Value = producto.Precio;
                 dataGridView.Rows.Add(row);

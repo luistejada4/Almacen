@@ -14,6 +14,8 @@ namespace DAL
         public DbSet<FormaDePago> FormasDePagos { get; set; }
         public DbSet<ProductoFactura> PeroductosFacturas { get; set; }
         public DbSet<Ruta> Rutas { get; set; }
+        public DbSet<Usuario> Usuarios { get; set; }
+        public DbSet<Pago> Pagos { get; set; }
 
         public Database()
             : base("ConStr")
@@ -27,6 +29,8 @@ namespace DAL
 
             modelBuilder.Entity<ProductoFactura>()
                 .HasKey(x => new { x.FacturaId, x.ProductoId });
+
+        
          
         }
     }

@@ -53,9 +53,13 @@
   <ItemGroup>
     <Compile Include="Database.cs" />
     <Compile Include="IRepository.cs" />
-    <Compile Include="Migrations\201703242234366_Init.cs" />
-    <Compile Include="Migrations\201703242234366_Init.Designer.cs">
-      <DependentUpon>201703242234366_Init.cs</DependentUpon>
+    <Compile Include="Migrations\201703281302545_FormaDePago.cs" />
+    <Compile Include="Migrations\201703281302545_FormaDePago.Designer.cs">
+      <DependentUpon>201703281302545_FormaDePago.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703281455016_Forma.cs" />
+    <Compile Include="Migrations\201703281455016_Forma.Designer.cs">
+      <DependentUpon>201703281455016_Forma.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -83,8 +87,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201703242234366_Init.resx">
-      <DependentUpon>201703242234366_Init.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201703281302545_FormaDePago.resx">
+      <DependentUpon>201703281302545_FormaDePago.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703281455016_Forma.resx">
+      <DependentUpon>201703281455016_Forma.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -33,7 +33,6 @@
             this.statusRegistrarCliente = new System.Windows.Forms.StatusStrip();
             this.toolStripLabelEstado = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripLabelHaciendo = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripProgressBar = new System.Windows.Forms.ToolStripProgressBar();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -59,8 +58,7 @@
             // 
             this.statusRegistrarCliente.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripLabelEstado,
-            this.toolStripLabelHaciendo,
-            this.toolStripProgressBar});
+            this.toolStripLabelHaciendo});
             this.statusRegistrarCliente.Location = new System.Drawing.Point(0, 278);
             this.statusRegistrarCliente.Name = "statusRegistrarCliente";
             this.statusRegistrarCliente.Size = new System.Drawing.Size(413, 22);
@@ -77,12 +75,6 @@
             this.toolStripLabelHaciendo.Name = "toolStripLabelHaciendo";
             this.toolStripLabelHaciendo.Size = new System.Drawing.Size(54, 17);
             this.toolStripLabelHaciendo.Text = "Ninguno";
-            // 
-            // toolStripProgressBar
-            // 
-            this.toolStripProgressBar.Name = "toolStripProgressBar";
-            this.toolStripProgressBar.Size = new System.Drawing.Size(100, 16);
-            this.toolStripProgressBar.Value = 1;
             // 
             // groupBox1
             // 
@@ -310,7 +302,6 @@
         private System.Windows.Forms.StatusStrip statusRegistrarCliente;
         private System.Windows.Forms.ToolStripStatusLabel toolStripLabelEstado;
         private System.Windows.Forms.ToolStripStatusLabel toolStripLabelHaciendo;
-        private System.Windows.Forms.ToolStripProgressBar toolStripProgressBar;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;

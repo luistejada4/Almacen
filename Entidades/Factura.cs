@@ -15,8 +15,6 @@ namespace Entidades
 
         public DateTime Fecha { get; set; }
 
-        public float SubTotal { get; set; }
-
         public float Total { get; set; }
 
         public int ClienteId { get; set; }
@@ -27,20 +25,24 @@ namespace Entidades
 
         public virtual List<ProductoFactura> Productos { get; set; }
 
+        public virtual List<Pago> Pagos { get; set;}
+
+
+
         public Factura()
         {
             Productos = new List<ProductoFactura>();
         }
 
-        public Factura(int facturaId, int clienteId, int formaDePagoId, DateTime fecha, float subTotal, float total)
+        public Factura(int facturaId, int clienteId, int formaDePagoId, DateTime fecha, float total, int usuarioId)
         {
 
             this.FacturaId = facturaId;
             this.ClienteId = clienteId;
             this.FormaDePagoId = formaDePagoId;
             this.Fecha = fecha;
-            this.SubTotal = subTotal;
             this.Total = total;
+           // this.UsuarioId = usuarioId;
             Productos = new List<ProductoFactura>();
 
         }

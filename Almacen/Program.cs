@@ -1,4 +1,5 @@
-﻿using AlmacenLT;
+﻿using Almacen.UI;
+using AlmacenLT;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,7 @@ namespace Almacen
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Inicio());
+            Application.Run(new Login());
         }
     }
 }

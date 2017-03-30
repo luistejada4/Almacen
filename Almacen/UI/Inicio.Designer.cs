@@ -39,12 +39,11 @@
             this.clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rutasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.productosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tiposDePagosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clientesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.rutasToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.productosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.reportesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hacercaDeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripAlmacenLT = new System.Windows.Forms.ToolStrip();
@@ -60,15 +59,18 @@
             this.toolStripButtonConsProducto = new System.Windows.Forms.ToolStripButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBoxBotones = new System.Windows.Forms.GroupBox();
+            this.buttonImprimir = new System.Windows.Forms.Button();
             this.buttonEliminar = new System.Windows.Forms.Button();
             this.buttonGuardar = new System.Windows.Forms.Button();
             this.buttonNuevo = new System.Windows.Forms.Button();
             this.groupBoxTotal = new System.Windows.Forms.GroupBox();
             this.labelTotal = new System.Windows.Forms.Label();
-            this.labelSubTotal = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.groupBoxFactura = new System.Windows.Forms.GroupBox();
+            this.buttonPagar = new System.Windows.Forms.Button();
+            this.groupBoxInicial = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.maskedTextBoxInicial = new System.Windows.Forms.MaskedTextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.comboBoxFormaDePago = new System.Windows.Forms.ComboBox();
             this.numericUpDownCantidad = new System.Windows.Forms.NumericUpDown();
@@ -91,13 +93,13 @@
             this.statusRegistrarCliente = new System.Windows.Forms.StatusStrip();
             this.toolStripLabelEstado = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripLabelHaciendo = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripProgressBar = new System.Windows.Forms.ToolStripProgressBar();
             this.menuStripAlmacenLT.SuspendLayout();
             this.toolStripAlmacenLT.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBoxBotones.SuspendLayout();
             this.groupBoxTotal.SuspendLayout();
             this.groupBoxFactura.SuspendLayout();
+            this.groupBoxInicial.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCantidad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.statusRegistrarCliente.SuspendLayout();
@@ -110,7 +112,6 @@
             this.consultasToolStripMenuItem,
             this.registrosToolStripMenuItem,
             this.reportesToolStripMenuItem,
-            this.reportesToolStripMenuItem1,
             this.helpToolStripMenuItem});
             this.menuStripAlmacenLT.Location = new System.Drawing.Point(0, 0);
             this.menuStripAlmacenLT.Name = "menuStripAlmacenLT";
@@ -145,7 +146,7 @@
             // 
             // nuevaToolStripMenuItem
             // 
-            this.nuevaToolStripMenuItem.Image = global::Almacen.Properties.Resources.Create_New_20;
+            this.nuevaToolStripMenuItem.Image = global::Almacen.Properties.Resources.Bill_48;
             this.nuevaToolStripMenuItem.Name = "nuevaToolStripMenuItem";
             this.nuevaToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
             this.nuevaToolStripMenuItem.Text = "Nueva";
@@ -165,7 +166,7 @@
             this.clientesToolStripMenuItem,
             this.rutasToolStripMenuItem,
             this.productosToolStripMenuItem,
-            this.tiposDePagosToolStripMenuItem});
+            this.usuariosToolStripMenuItem});
             this.registrosToolStripMenuItem.Name = "registrosToolStripMenuItem";
             this.registrosToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
             this.registrosToolStripMenuItem.Text = "Registros";
@@ -174,7 +175,7 @@
             // 
             this.clientesToolStripMenuItem.Image = global::Almacen.Properties.Resources.Contacts_40;
             this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
-            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
             this.clientesToolStripMenuItem.Text = "Clientes";
             this.clientesToolStripMenuItem.Click += new System.EventHandler(this.clientesToolStripMenuItem_Click);
             // 
@@ -182,7 +183,7 @@
             // 
             this.rutasToolStripMenuItem.Image = global::Almacen.Properties.Resources.Road_50;
             this.rutasToolStripMenuItem.Name = "rutasToolStripMenuItem";
-            this.rutasToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.rutasToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
             this.rutasToolStripMenuItem.Text = "Rutas";
             this.rutasToolStripMenuItem.Click += new System.EventHandler(this.rutasToolStripMenuItem_Click);
             // 
@@ -190,17 +191,16 @@
             // 
             this.productosToolStripMenuItem.Image = global::Almacen.Properties.Resources.Product_50;
             this.productosToolStripMenuItem.Name = "productosToolStripMenuItem";
-            this.productosToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.productosToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
             this.productosToolStripMenuItem.Text = "Productos";
             this.productosToolStripMenuItem.Click += new System.EventHandler(this.productosToolStripMenuItem_Click);
             // 
-            // tiposDePagosToolStripMenuItem
+            // usuariosToolStripMenuItem
             // 
-            this.tiposDePagosToolStripMenuItem.Image = global::Almacen.Properties.Resources.US_Dollar_40;
-            this.tiposDePagosToolStripMenuItem.Name = "tiposDePagosToolStripMenuItem";
-            this.tiposDePagosToolStripMenuItem.Size = new System.Drawing.Size(154, 22);
-            this.tiposDePagosToolStripMenuItem.Text = "Tipos de pagos";
-            this.tiposDePagosToolStripMenuItem.Click += new System.EventHandler(this.tiposDePagosToolStripMenuItem_Click);
+            this.usuariosToolStripMenuItem.Name = "usuariosToolStripMenuItem";
+            this.usuariosToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
+            this.usuariosToolStripMenuItem.Text = "Usuarios";
+            this.usuariosToolStripMenuItem.Click += new System.EventHandler(this.usuariosToolStripMenuItem_Click);
             // 
             // reportesToolStripMenuItem
             // 
@@ -236,12 +236,6 @@
             this.productosToolStripMenuItem1.Text = "Productos";
             this.productosToolStripMenuItem1.Click += new System.EventHandler(this.productosToolStripMenuItem1_Click);
             // 
-            // reportesToolStripMenuItem1
-            // 
-            this.reportesToolStripMenuItem1.Name = "reportesToolStripMenuItem1";
-            this.reportesToolStripMenuItem1.Size = new System.Drawing.Size(65, 20);
-            this.reportesToolStripMenuItem1.Text = "Reportes";
-            // 
             // helpToolStripMenuItem
             // 
             this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -252,7 +246,6 @@
             // 
             // hacercaDeToolStripMenuItem
             // 
-            this.hacercaDeToolStripMenuItem.Image = global::Almacen.Properties.Resources.About_50;
             this.hacercaDeToolStripMenuItem.Name = "hacercaDeToolStripMenuItem";
             this.hacercaDeToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
             this.hacercaDeToolStripMenuItem.Text = "About AlmacenLT";
@@ -366,21 +359,31 @@
             // 
             // groupBoxBotones
             // 
+            this.groupBoxBotones.Controls.Add(this.buttonImprimir);
             this.groupBoxBotones.Controls.Add(this.buttonEliminar);
             this.groupBoxBotones.Controls.Add(this.buttonGuardar);
             this.groupBoxBotones.Controls.Add(this.buttonNuevo);
             this.groupBoxBotones.Dock = System.Windows.Forms.DockStyle.Right;
-            this.groupBoxBotones.Location = new System.Drawing.Point(233, 328);
+            this.groupBoxBotones.Location = new System.Drawing.Point(147, 328);
             this.groupBoxBotones.Name = "groupBoxBotones";
-            this.groupBoxBotones.Size = new System.Drawing.Size(247, 86);
+            this.groupBoxBotones.Size = new System.Drawing.Size(333, 86);
             this.groupBoxBotones.TabIndex = 16;
             this.groupBoxBotones.TabStop = false;
+            // 
+            // buttonImprimir
+            // 
+            this.buttonImprimir.Location = new System.Drawing.Point(249, 12);
+            this.buttonImprimir.Name = "buttonImprimir";
+            this.buttonImprimir.Size = new System.Drawing.Size(75, 35);
+            this.buttonImprimir.TabIndex = 40;
+            this.buttonImprimir.Text = "Imprimir";
+            this.buttonImprimir.UseVisualStyleBackColor = true;
+            this.buttonImprimir.Click += new System.EventHandler(this.button1_Click);
             // 
             // buttonEliminar
             // 
             this.buttonEliminar.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonEliminar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.buttonEliminar.Image = global::Almacen.Properties.Resources.Delete_20;
             this.buttonEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonEliminar.Location = new System.Drawing.Point(168, 12);
             this.buttonEliminar.Name = "buttonEliminar";
@@ -396,7 +399,6 @@
             this.buttonGuardar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.buttonGuardar.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonGuardar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.buttonGuardar.Image = global::Almacen.Properties.Resources.Save_20;
             this.buttonGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonGuardar.Location = new System.Drawing.Point(87, 12);
             this.buttonGuardar.Name = "buttonGuardar";
@@ -412,7 +414,6 @@
             // 
             this.buttonNuevo.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonNuevo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.buttonNuevo.Image = global::Almacen.Properties.Resources.Create_New_20;
             this.buttonNuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonNuevo.Location = new System.Drawing.Point(6, 12);
             this.buttonNuevo.Name = "buttonNuevo";
@@ -426,62 +427,41 @@
             // groupBoxTotal
             // 
             this.groupBoxTotal.Controls.Add(this.labelTotal);
-            this.groupBoxTotal.Controls.Add(this.labelSubTotal);
             this.groupBoxTotal.Controls.Add(this.label2);
-            this.groupBoxTotal.Controls.Add(this.label1);
             this.groupBoxTotal.Dock = System.Windows.Forms.DockStyle.Right;
             this.groupBoxTotal.Location = new System.Drawing.Point(480, 328);
             this.groupBoxTotal.Name = "groupBoxTotal";
             this.groupBoxTotal.Size = new System.Drawing.Size(197, 86);
             this.groupBoxTotal.TabIndex = 15;
             this.groupBoxTotal.TabStop = false;
+            this.groupBoxTotal.Enter += new System.EventHandler(this.groupBoxTotal_Enter);
             // 
             // labelTotal
             // 
             this.labelTotal.AutoSize = true;
             this.labelTotal.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTotal.ForeColor = System.Drawing.Color.Green;
-            this.labelTotal.Location = new System.Drawing.Point(80, 34);
+            this.labelTotal.Location = new System.Drawing.Point(80, 16);
             this.labelTotal.Name = "labelTotal";
             this.labelTotal.Size = new System.Drawing.Size(34, 22);
             this.labelTotal.TabIndex = 17;
             this.labelTotal.Text = "0.0";
-            // 
-            // labelSubTotal
-            // 
-            this.labelSubTotal.AutoSize = true;
-            this.labelSubTotal.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelSubTotal.ForeColor = System.Drawing.Color.Black;
-            this.labelSubTotal.Location = new System.Drawing.Point(80, 12);
-            this.labelSubTotal.Name = "labelSubTotal";
-            this.labelSubTotal.Size = new System.Drawing.Size(34, 22);
-            this.labelSubTotal.TabIndex = 16;
-            this.labelSubTotal.Text = "0.0";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.DimGray;
-            this.label2.Location = new System.Drawing.Point(6, 34);
+            this.label2.Location = new System.Drawing.Point(6, 16);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(46, 22);
             this.label2.TabIndex = 15;
             this.label2.Text = "Total";
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.DimGray;
-            this.label1.Location = new System.Drawing.Point(6, 12);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(68, 22);
-            this.label1.TabIndex = 14;
-            this.label1.Text = "Subtotal";
-            // 
             // groupBoxFactura
             // 
+            this.groupBoxFactura.Controls.Add(this.buttonPagar);
+            this.groupBoxFactura.Controls.Add(this.groupBoxInicial);
             this.groupBoxFactura.Controls.Add(this.label9);
             this.groupBoxFactura.Controls.Add(this.comboBoxFormaDePago);
             this.groupBoxFactura.Controls.Add(this.numericUpDownCantidad);
@@ -506,6 +486,55 @@
             this.groupBoxFactura.TabStop = false;
             this.groupBoxFactura.Text = "Facturacion";
             // 
+            // buttonPagar
+            // 
+            this.buttonPagar.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonPagar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.buttonPagar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonPagar.Location = new System.Drawing.Point(435, 19);
+            this.buttonPagar.Name = "buttonPagar";
+            this.buttonPagar.Size = new System.Drawing.Size(75, 35);
+            this.buttonPagar.TabIndex = 41;
+            this.buttonPagar.Text = "Pagar";
+            this.buttonPagar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonPagar.UseVisualStyleBackColor = true;
+            this.buttonPagar.Click += new System.EventHandler(this.buttonPagar_Click);
+            // 
+            // groupBoxInicial
+            // 
+            this.groupBoxInicial.Controls.Add(this.label3);
+            this.groupBoxInicial.Controls.Add(this.maskedTextBoxInicial);
+            this.groupBoxInicial.Location = new System.Drawing.Point(372, 76);
+            this.groupBoxInicial.Name = "groupBoxInicial";
+            this.groupBoxInicial.Size = new System.Drawing.Size(179, 62);
+            this.groupBoxInicial.TabIndex = 42;
+            this.groupBoxInicial.TabStop = false;
+            this.groupBoxInicial.Text = "Inicial";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.DimGray;
+            this.label3.Location = new System.Drawing.Point(6, 34);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(57, 22);
+            this.label3.TabIndex = 41;
+            this.label3.Text = "Monto";
+            // 
+            // maskedTextBoxInicial
+            // 
+            this.maskedTextBoxInicial.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.maskedTextBoxInicial.Font = new System.Drawing.Font("Trebuchet MS", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.maskedTextBoxInicial.ForeColor = System.Drawing.Color.Silver;
+            this.maskedTextBoxInicial.Location = new System.Drawing.Point(63, 33);
+            this.maskedTextBoxInicial.Mask = "9999999999";
+            this.maskedTextBoxInicial.Name = "maskedTextBoxInicial";
+            this.maskedTextBoxInicial.Size = new System.Drawing.Size(112, 25);
+            this.maskedTextBoxInicial.TabIndex = 40;
+            this.maskedTextBoxInicial.Text = "0";
+            this.maskedTextBoxInicial.ValidatingType = typeof(int);
+            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -524,6 +553,7 @@
             this.comboBoxFormaDePago.Name = "comboBoxFormaDePago";
             this.comboBoxFormaDePago.Size = new System.Drawing.Size(239, 26);
             this.comboBoxFormaDePago.TabIndex = 38;
+            this.comboBoxFormaDePago.SelectedIndexChanged += new System.EventHandler(this.comboBoxFormaDePago_SelectedIndexChanged);
             // 
             // numericUpDownCantidad
             // 
@@ -538,7 +568,6 @@
             // 
             this.buttonAgregarProducto.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonAgregarProducto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.buttonAgregarProducto.Image = global::Almacen.Properties.Resources.Plus_20;
             this.buttonAgregarProducto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonAgregarProducto.Location = new System.Drawing.Point(433, 139);
             this.buttonAgregarProducto.Name = "buttonAgregarProducto";
@@ -603,6 +632,7 @@
             // 
             // dataGridView
             // 
+            this.dataGridView.AllowUserToAddRows = false;
             this.dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -701,8 +731,7 @@
             // 
             this.statusRegistrarCliente.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripLabelEstado,
-            this.toolStripLabelHaciendo,
-            this.toolStripProgressBar});
+            this.toolStripLabelHaciendo});
             this.statusRegistrarCliente.Location = new System.Drawing.Point(0, 443);
             this.statusRegistrarCliente.Name = "statusRegistrarCliente";
             this.statusRegistrarCliente.Size = new System.Drawing.Size(679, 22);
@@ -720,12 +749,6 @@
             this.toolStripLabelHaciendo.Name = "toolStripLabelHaciendo";
             this.toolStripLabelHaciendo.Size = new System.Drawing.Size(54, 17);
             this.toolStripLabelHaciendo.Text = "Ninguno";
-            // 
-            // toolStripProgressBar
-            // 
-            this.toolStripProgressBar.Name = "toolStripProgressBar";
-            this.toolStripProgressBar.Size = new System.Drawing.Size(100, 16);
-            this.toolStripProgressBar.Value = 1;
             // 
             // Inicio
             // 
@@ -753,6 +776,8 @@
             this.groupBoxTotal.PerformLayout();
             this.groupBoxFactura.ResumeLayout(false);
             this.groupBoxFactura.PerformLayout();
+            this.groupBoxInicial.ResumeLayout(false);
+            this.groupBoxInicial.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownCantidad)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.statusRegistrarCliente.ResumeLayout(false);
@@ -773,12 +798,10 @@
         private System.Windows.Forms.ToolStripMenuItem clientesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem rutasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem productosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem tiposDePagosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reportesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem clientesToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem rutasToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem productosToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem reportesToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem hacercaDeToolStripMenuItem;
         private System.Windows.Forms.ToolStrip toolStripAlmacenLT;
@@ -812,21 +835,24 @@
         private System.Windows.Forms.StatusStrip statusRegistrarCliente;
         private System.Windows.Forms.ToolStripStatusLabel toolStripLabelEstado;
         private System.Windows.Forms.ToolStripStatusLabel toolStripLabelHaciendo;
-        private System.Windows.Forms.ToolStripProgressBar toolStripProgressBar;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ComboBox comboBoxProductos;
         private System.Windows.Forms.Button buttonAgregarProducto;
         private System.Windows.Forms.NumericUpDown numericUpDownCantidad;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox comboBoxFormaDePago;
-        private System.Windows.Forms.Label labelSubTotal;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnProductoId;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnProducto;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnPrecio;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnSubTotal;
         private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem1;
+        private System.Windows.Forms.Button buttonImprimir;
+        private System.Windows.Forms.ToolStripMenuItem usuariosToolStripMenuItem;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.MaskedTextBox maskedTextBoxInicial;
+        private System.Windows.Forms.GroupBox groupBoxInicial;
+        private System.Windows.Forms.Button buttonPagar;
     }
 }
 

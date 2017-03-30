@@ -203,6 +203,16 @@ namespace Almacen.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Login_Rounded_Right_20 {
+            get {
+                object obj = ResourceManager.GetObject("Login Rounded Right-20", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap logo_blanco {
             get {
                 object obj = ResourceManager.GetObject("logo blanco", resourceCulture);

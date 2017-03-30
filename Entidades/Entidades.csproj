@@ -53,6 +53,7 @@
     <Compile Include="Factura.cs" />
     <Compile Include="FormaDePago.cs" />
     <Compile Include="IEntidades.cs" />
+    <Compile Include="Pago.cs" />
     <Compile Include="Producto.cs" />
     <Compile Include="ProductoFactura.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

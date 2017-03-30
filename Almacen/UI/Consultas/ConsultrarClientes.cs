@@ -31,7 +31,6 @@ namespace AlmacenLT.UI.Consultas
                 row.Cells[0].Value = cliente.ClienteId;
                 row.Cells[1].Value = cliente.Nombres;
                 row.Cells[2].Value = cliente.Ruta.Lugar;
-                row.Cells[3].Value = "Ver";
                 dataGridView.Rows.Add(row);
             }
         }
@@ -45,7 +44,6 @@ namespace AlmacenLT.UI.Consultas
 
         private void toolStripButtonBuscar_Click(object sender, EventArgs e)
         {
-
             if (checkBoxNombre.Checked)
             {
                 if (!string.IsNullOrEmpty(toolStripTextBoxSearch.Text) || !string.IsNullOrWhiteSpace(toolStripTextBoxSearch.Text))

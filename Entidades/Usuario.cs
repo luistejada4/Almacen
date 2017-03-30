@@ -10,20 +10,23 @@ namespace Entidades
     public class Usuario
     {
         [Key]
-        public int UserId { get; set; }
-        [Required, MaxLength(30)]
+        public int UsuarioId { get; set; }
+
         public string UserName { get; set; }
-        [Required, MaxLength(50)]
-        public string Nombre { get; set; }
+
+        public string Password { get; set; }
+
+        public virtual List<Factura> Facturas { get; set; }
 
         public Usuario()
         {
 
         }
-        public Usuario(string userName, string nombre, int nivelId)
+        public Usuario(int id, string userName, string password)
         {
+            this.UsuarioId = id;
             this.UserName = userName;
-            this.Nombre = nombre;
+            this.Password = password;
         }
     }
 }

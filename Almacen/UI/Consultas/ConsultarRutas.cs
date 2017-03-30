@@ -44,7 +44,6 @@ namespace AlmacenLT.UI.Consultas
             {
                 DataGridViewRow row = (DataGridViewRow)dataGridView1.Rows[0].Clone();
                 row.Cells[0].Value = cliente.Nombres;
-                row.Cells[1].Value = "Ver";
    
                 dataGridView1.Rows.Add(row);
             }

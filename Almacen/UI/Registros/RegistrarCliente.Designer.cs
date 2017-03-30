@@ -51,7 +51,6 @@
             this.statusRegistrarCliente = new System.Windows.Forms.StatusStrip();
             this.toolStripLabelEstado = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripLabelHaciendo = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripProgressBar = new System.Windows.Forms.ToolStripProgressBar();
             this.timerEscribiendo = new System.Windows.Forms.Timer(this.components);
             this.groupBox1.SuspendLayout();
             this.statusRegistrarCliente.SuspendLayout();
@@ -278,8 +277,7 @@
             // 
             this.statusRegistrarCliente.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripLabelEstado,
-            this.toolStripLabelHaciendo,
-            this.toolStripProgressBar});
+            this.toolStripLabelHaciendo});
             this.statusRegistrarCliente.Location = new System.Drawing.Point(0, 327);
             this.statusRegistrarCliente.Name = "statusRegistrarCliente";
             this.statusRegistrarCliente.Size = new System.Drawing.Size(379, 22);
@@ -297,12 +295,6 @@
             this.toolStripLabelHaciendo.Name = "toolStripLabelHaciendo";
             this.toolStripLabelHaciendo.Size = new System.Drawing.Size(54, 17);
             this.toolStripLabelHaciendo.Text = "Ninguno";
-            // 
-            // toolStripProgressBar
-            // 
-            this.toolStripProgressBar.Name = "toolStripProgressBar";
-            this.toolStripProgressBar.Size = new System.Drawing.Size(100, 16);
-            this.toolStripProgressBar.Value = 1;
             // 
             // timerEscribiendo
             // 
@@ -350,7 +342,6 @@
         private System.Windows.Forms.StatusStrip statusRegistrarCliente;
         private System.Windows.Forms.ToolStripStatusLabel toolStripLabelEstado;
         private System.Windows.Forms.ToolStripStatusLabel toolStripLabelHaciendo;
-        private System.Windows.Forms.ToolStripProgressBar toolStripProgressBar;
         private System.Windows.Forms.Timer timerEscribiendo;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;

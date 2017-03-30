@@ -13,12 +13,12 @@ namespace Entidades
         public int ProductoId { get; set; }
     
         public string Nombre { get; set; }
-     
-        public float Costo { get; set; }
 
-        public float Precio { get; set; }
-       
         public int Cantidad { get; set; }
+
+        public float Costo { get; set; }
+      
+        public float Precio { get; set; }
 
         public virtual List<ProductoFactura> Facturas { get; set; }
 
@@ -26,13 +26,13 @@ namespace Entidades
         {
             Facturas = new List<ProductoFactura>();
         }
-        public Producto(int productoId, string nombre, float costo, float precio, int cantidad)
+        public Producto(int productoId, int cantidad, string nombre, float costo, float precio)
         {
             this.ProductoId = productoId;
             this.Nombre = nombre;
+            this.Cantidad = cantidad;
             this.Costo = costo;
             this.Precio = precio;
-            this.Cantidad = cantidad;
 
             Facturas = new List<ProductoFactura>();
         }

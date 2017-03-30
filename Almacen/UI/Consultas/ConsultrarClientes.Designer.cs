@@ -32,19 +32,18 @@
             this.statusRegistrarCliente = new System.Windows.Forms.StatusStrip();
             this.toolStripLabelEstado = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripLabelHaciendo = new System.Windows.Forms.ToolStripStatusLabel();
-            this.toolStripProgressBar = new System.Windows.Forms.ToolStripProgressBar();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripTextBoxSearch = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripButtonBuscar = new System.Windows.Forms.ToolStripButton();
             this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.checkBoxNombre = new System.Windows.Forms.CheckBox();
             this.ColumnId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnRuta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.checkBoxNombre = new System.Windows.Forms.CheckBox();
             this.statusRegistrarCliente.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
@@ -56,8 +55,7 @@
             // 
             this.statusRegistrarCliente.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripLabelEstado,
-            this.toolStripLabelHaciendo,
-            this.toolStripProgressBar});
+            this.toolStripLabelHaciendo});
             this.statusRegistrarCliente.Location = new System.Drawing.Point(0, 480);
             this.statusRegistrarCliente.Name = "statusRegistrarCliente";
             this.statusRegistrarCliente.Size = new System.Drawing.Size(427, 22);
@@ -74,12 +72,6 @@
             this.toolStripLabelHaciendo.Name = "toolStripLabelHaciendo";
             this.toolStripLabelHaciendo.Size = new System.Drawing.Size(54, 17);
             this.toolStripLabelHaciendo.Text = "Ninguno";
-            // 
-            // toolStripProgressBar
-            // 
-            this.toolStripProgressBar.Name = "toolStripProgressBar";
-            this.toolStripProgressBar.Size = new System.Drawing.Size(100, 16);
-            this.toolStripProgressBar.Value = 1;
             // 
             // toolStrip1
             // 
@@ -139,6 +131,21 @@
             this.dataGridView.Size = new System.Drawing.Size(343, 340);
             this.dataGridView.TabIndex = 31;
             // 
+            // ColumnId
+            // 
+            this.ColumnId.HeaderText = "Id";
+            this.ColumnId.Name = "ColumnId";
+            // 
+            // ColumnNombre
+            // 
+            this.ColumnNombre.HeaderText = "Nombre";
+            this.ColumnNombre.Name = "ColumnNombre";
+            // 
+            // ColumnRuta
+            // 
+            this.ColumnRuta.HeaderText = "Ruta";
+            this.ColumnRuta.Name = "ColumnRuta";
+            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.dataGridView);
@@ -173,21 +180,6 @@
             this.checkBoxNombre.Text = "Nombre";
             this.checkBoxNombre.UseVisualStyleBackColor = true;
             this.checkBoxNombre.CheckedChanged += new System.EventHandler(this.checkBoxNombre_CheckedChanged);
-            // 
-            // ColumnId
-            // 
-            this.ColumnId.HeaderText = "Id";
-            this.ColumnId.Name = "ColumnId";
-            // 
-            // ColumnNombre
-            // 
-            this.ColumnNombre.HeaderText = "Nombre";
-            this.ColumnNombre.Name = "ColumnNombre";
-            // 
-            // ColumnRuta
-            // 
-            this.ColumnRuta.HeaderText = "Ruta";
-            this.ColumnRuta.Name = "ColumnRuta";
             // 
             // ConsultrarClientes
             // 
@@ -225,7 +217,6 @@
         private System.Windows.Forms.StatusStrip statusRegistrarCliente;
         private System.Windows.Forms.ToolStripStatusLabel toolStripLabelEstado;
         private System.Windows.Forms.ToolStripStatusLabel toolStripLabelHaciendo;
-        private System.Windows.Forms.ToolStripProgressBar toolStripProgressBar;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripLabel toolStripLabel1;
         private System.Windows.Forms.ToolStripTextBox toolStripTextBoxSearch;

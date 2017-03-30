@@ -33,7 +33,6 @@ namespace AlmacenLT.UI.Registros
             if (producto != null)
             {
                 maskedTextBoxId.Text = producto.ProductoId.ToString();
-                maskedTextBoxCantidad.Text = producto.Cantidad.ToString();
                 textBoxNombre.Text = producto.Nombre;
                 maskedTextBoxCosto.Text = producto.Costo.ToString();
                 maskedTextBoxPrecio.Text = producto.Precio.ToString();
@@ -108,7 +107,7 @@ namespace AlmacenLT.UI.Registros
                 int id = 0;
                 int.TryParse(maskedTextBoxId.Text, out id);
 
-                Producto producto = new Producto(id, textBoxNombre.Text, int.Parse(maskedTextBoxCosto.Text), int.Parse(maskedTextBoxPrecio.Text), int.Parse(maskedTextBoxCantidad.Text));
+                Producto producto = new Producto(id, int.Parse(maskedTextBoxCantidad.Text), textBoxNombre.Text, int.Parse(maskedTextBoxCosto.Text), int.Parse(maskedTextBoxPrecio.Text));
 
                 if (!ProductosBLL.Buscar(x => x.ProductoId == id, false))
                 {

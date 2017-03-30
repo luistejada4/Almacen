@@ -56,9 +56,12 @@
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=12.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -90,23 +93,35 @@
     <Compile Include="UI\Consultas\ConsultrarClientes.Designer.cs">
       <DependentUpon>ConsultrarClientes.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Facturacion\PagarFactura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Facturacion\PagarFactura.Designer.cs">
+      <DependentUpon>PagarFactura.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Facturacion\Facturacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Facturacion\Facturacion.Designer.cs">
+      <DependentUpon>Facturacion.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Inicio.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\Inicio.Designer.cs">
       <DependentUpon>Inicio.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Registros\RegistrarCliente.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\Registros\RegistrarCliente.Designer.cs">
       <DependentUpon>RegistrarCliente.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\Registros\RegistrarFormaDePagos.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\Registros\RegistrarFormaDePagos.Designer.cs">
-      <DependentUpon>RegistrarFormaDePagos.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Registros\RegistrarProductos.cs">
       <SubType>Form</SubType>
@@ -120,6 +135,18 @@
     <Compile Include="UI\Registros\RegistrarRuta.Designer.cs">
       <DependentUpon>RegistrarRuta.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Registros\RegistrarUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Registros\RegistrarUsuario.Designer.cs">
+      <DependentUpon>RegistrarUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\ReporteFactura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\ReporteFactura.Designer.cs">
+      <DependentUpon>ReporteFactura.cs</DependentUpon>
+    </Compile>
     <Compile Include="Utilidades\UtilidadesFormularios.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -131,6 +158,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Reportes\FacturaProducto.rdlc" />
     <EmbeddedResource Include="UI\Consultas\ConsultarProductos.resx">
       <DependentUpon>ConsultarProductos.cs</DependentUpon>
     </EmbeddedResource>
@@ -140,14 +168,20 @@
     <EmbeddedResource Include="UI\Consultas\ConsultrarClientes.resx">
       <DependentUpon>ConsultrarClientes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Facturacion\PagarFactura.resx">
+      <DependentUpon>PagarFactura.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Facturacion\Facturacion.resx">
+      <DependentUpon>Facturacion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Inicio.resx">
       <DependentUpon>Inicio.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Registros\RegistrarCliente.resx">
       <DependentUpon>RegistrarCliente.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Registros\RegistrarFormaDePagos.resx">
-      <DependentUpon>RegistrarFormaDePagos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Registros\RegistrarProductos.resx">
       <DependentUpon>RegistrarProductos.cs</DependentUpon>
@@ -155,7 +189,21 @@
     <EmbeddedResource Include="UI\Registros\RegistrarRuta.resx">
       <DependentUpon>RegistrarRuta.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Registros\RegistrarUsuario.resx">
+      <DependentUpon>RegistrarUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\ReporteFactura.resx">
+      <DependentUpon>ReporteFactura.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Entidades.Cliente.datasource" />
+    <None Include="Properties\DataSources\Entidades.Factura.datasource" />
+    <None Include="Properties\DataSources\Entidades.FormaDePago.datasource" />
+    <None Include="Properties\DataSources\Entidades.IEntidades.datasource" />
+    <None Include="Properties\DataSources\Entidades.Producto.datasource" />
+    <None Include="Properties\DataSources\Entidades.ProductoFactura.datasource" />
+    <None Include="Properties\DataSources\Entidades.Ruta.datasource" />
+    <None Include="Properties\DataSources\Entidades.Usuario.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -225,12 +273,15 @@
     <None Include="Resources\Plus-20.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="DataBase\DB.mdf">
+    <None Include="Resources\Login Rounded Right-20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DataBase\Database.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="DataBase\DB_log.ldf">
+    <Content Include="DataBase\Database_log.ldf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>DB.mdf</DependentUpon>
+      <DependentUpon>Database.mdf</DependentUpon>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
