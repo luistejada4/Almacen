@@ -62,12 +62,12 @@
             this.ColumnPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnSubTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.textBoxNombre = new System.Windows.Forms.TextBox();
             this.buttonBuscar = new System.Windows.Forms.Button();
             this.maskedTextBoxId = new System.Windows.Forms.MaskedTextBox();
             this.statusRegistrarCliente = new System.Windows.Forms.StatusStrip();
             this.toolStripLabelEstado = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripLabelHaciendo = new System.Windows.Forms.ToolStripStatusLabel();
+            this.comboBoxCliente = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.groupBoxBotones.SuspendLayout();
             this.groupBoxTotal.SuspendLayout();
@@ -211,6 +211,7 @@
             // 
             // groupBoxFactura
             // 
+            this.groupBoxFactura.Controls.Add(this.comboBoxCliente);
             this.groupBoxFactura.Controls.Add(this.groupBox3);
             this.groupBoxFactura.Controls.Add(this.groupBoxInicial);
             this.groupBoxFactura.Controls.Add(this.label9);
@@ -224,7 +225,6 @@
             this.groupBoxFactura.Controls.Add(this.label5);
             this.groupBoxFactura.Controls.Add(this.dataGridView);
             this.groupBoxFactura.Controls.Add(this.dateTimePicker1);
-            this.groupBoxFactura.Controls.Add(this.textBoxNombre);
             this.groupBoxFactura.Controls.Add(this.buttonBuscar);
             this.groupBoxFactura.Controls.Add(this.maskedTextBoxId);
             this.groupBoxFactura.Dock = System.Windows.Forms.DockStyle.Top;
@@ -398,6 +398,7 @@
             // 
             // dataGridView
             // 
+            this.dataGridView.AllowUserToAddRows = false;
             this.dataGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -456,19 +457,7 @@
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(239, 23);
             this.dateTimePicker1.TabIndex = 16;
-            // 
-            // textBoxNombre
-            // 
-            this.textBoxNombre.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.textBoxNombre.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.textBoxNombre.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxNombre.Font = new System.Drawing.Font("Trebuchet MS", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxNombre.ForeColor = System.Drawing.Color.DimGray;
-            this.textBoxNombre.Location = new System.Drawing.Point(127, 54);
-            this.textBoxNombre.Name = "textBoxNombre";
-            this.textBoxNombre.Size = new System.Drawing.Size(239, 23);
-            this.textBoxNombre.TabIndex = 13;
-            this.textBoxNombre.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
             // buttonBuscar
             // 
@@ -515,6 +504,16 @@
             this.toolStripLabelHaciendo.Size = new System.Drawing.Size(54, 17);
             this.toolStripLabelHaciendo.Text = "Ninguno";
             // 
+            // comboBoxCliente
+            // 
+            this.comboBoxCliente.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBoxCliente.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.comboBoxCliente.FormattingEnabled = true;
+            this.comboBoxCliente.Location = new System.Drawing.Point(127, 51);
+            this.comboBoxCliente.Name = "comboBoxCliente";
+            this.comboBoxCliente.Size = new System.Drawing.Size(239, 26);
+            this.comboBoxCliente.TabIndex = 44;
+            // 
             // Facturacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -554,7 +553,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.GroupBox groupBoxFactura;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.TextBox textBoxNombre;
         private System.Windows.Forms.Button buttonBuscar;
         private System.Windows.Forms.MaskedTextBox maskedTextBoxId;
         private System.Windows.Forms.DataGridView dataGridView;
@@ -590,6 +588,7 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label labelEstado;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox comboBoxCliente;
     }
 }
 

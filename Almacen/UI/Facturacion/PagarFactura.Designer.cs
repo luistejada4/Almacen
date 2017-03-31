@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PagarFactura));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
             this.maskedTextBoxPagoId = new System.Windows.Forms.MaskedTextBox();
@@ -41,14 +42,15 @@
             this.buttonGuardar = new System.Windows.Forms.Button();
             this.buttonNuevo = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.PagoId = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Monto = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.labelEstado = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.buttonBuscar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -57,6 +59,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.buttonBuscar);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.maskedTextBoxPagoId);
             this.groupBox1.Controls.Add(this.label7);
@@ -166,6 +169,7 @@
             this.buttonEliminar.Text = "Eliminar";
             this.buttonEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonEliminar.UseVisualStyleBackColor = true;
+            this.buttonEliminar.Click += new System.EventHandler(this.buttonEliminar_Click);
             // 
             // maskedTextBoxId
             // 
@@ -227,18 +231,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(444, 179);
             this.dataGridView1.TabIndex = 24;
             // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.dataGridView1);
-            this.groupBox2.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.ForeColor = System.Drawing.Color.DimGray;
-            this.groupBox2.Location = new System.Drawing.Point(409, 73);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(456, 204);
-            this.groupBox2.TabIndex = 25;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Pagos";
-            // 
             // PagoId
             // 
             this.PagoId.HeaderText = "Pago Id";
@@ -259,6 +251,18 @@
             this.Descripcion.HeaderText = "Descripcion";
             this.Descripcion.Name = "Descripcion";
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.dataGridView1);
+            this.groupBox2.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.ForeColor = System.Drawing.Color.DimGray;
+            this.groupBox2.Location = new System.Drawing.Point(409, 73);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(456, 204);
+            this.groupBox2.TabIndex = 25;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Pagos";
+            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.labelEstado);
@@ -268,6 +272,15 @@
             this.groupBox3.Size = new System.Drawing.Size(200, 61);
             this.groupBox3.TabIndex = 26;
             this.groupBox3.TabStop = false;
+            // 
+            // labelEstado
+            // 
+            this.labelEstado.AutoSize = true;
+            this.labelEstado.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelEstado.Location = new System.Drawing.Point(78, 23);
+            this.labelEstado.Name = "labelEstado";
+            this.labelEstado.Size = new System.Drawing.Size(0, 22);
+            this.labelEstado.TabIndex = 1;
             // 
             // label4
             // 
@@ -279,14 +292,15 @@
             this.label4.TabIndex = 0;
             this.label4.Text = "Estado:";
             // 
-            // labelEstado
+            // buttonBuscar
             // 
-            this.labelEstado.AutoSize = true;
-            this.labelEstado.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelEstado.Location = new System.Drawing.Point(78, 23);
-            this.labelEstado.Name = "labelEstado";
-            this.labelEstado.Size = new System.Drawing.Size(0, 22);
-            this.labelEstado.TabIndex = 1;
+            this.buttonBuscar.Image = ((System.Drawing.Image)(resources.GetObject("buttonBuscar.Image")));
+            this.buttonBuscar.Location = new System.Drawing.Point(277, 67);
+            this.buttonBuscar.Name = "buttonBuscar";
+            this.buttonBuscar.Size = new System.Drawing.Size(29, 25);
+            this.buttonBuscar.TabIndex = 39;
+            this.buttonBuscar.UseVisualStyleBackColor = true;
+            this.buttonBuscar.Click += new System.EventHandler(this.buttonBuscar_Click);
             // 
             // PagarFactura
             // 
@@ -337,5 +351,6 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label labelEstado;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button buttonBuscar;
     }
 }

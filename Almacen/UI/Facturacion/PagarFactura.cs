@@ -20,9 +20,10 @@ namespace Almacen.UI.Facturacion
         {
             InitializeComponent();
             maskedTextBoxId.Text = facturaId.ToString();
+
         }
 
-        private void PagarFactura_Load(object sender, EventArgs e)
+        private void VerificarPagos()
         {
             int id = int.Parse(maskedTextBoxId.Text);
             FacturasBLL.Buscar(x => x.FacturaId == id, true);
@@ -30,7 +31,10 @@ namespace Almacen.UI.Facturacion
             factura = FacturasBLL.facturaReturned;
 
             double totalPagos = 0;
-            foreach(var pago in factura.Pagos)
+            dataGridView1.Rows.Clear();
+            dataGridView1.Refresh();
+            dataGridView1.Rows.Add();
+            foreach (var pago in factura.Pagos)
             {
                 DataGridViewRow row = (DataGridViewRow)dataGridView1.Rows[0].Clone();
                 row.Cells[0].Value = pago.PagoId;
@@ -50,12 +54,17 @@ namespace Almacen.UI.Facturacion
                 labelEstado.Text = "Debe";
                 labelEstado.ForeColor = Color.Red;
             }
+        }
+
+        private void PagarFactura_Load(object sender, EventArgs e)
+        {
+            VerificarPagos();
 
         }
 
         private void buttonNuevo_Click(object sender, EventArgs e)
         {
-            UtilidadesFormularios.Limpiar(null, new List<MaskedTextBox> { maskedTextBoxMonto }, null);
+            UtilidadesFormularios.Limpiar(null, new List<MaskedTextBox> { maskedTextBoxMonto, maskedTextBoxPagoId }, null);
         }
 
         private void buttonGuardar_Click(object sender, EventArgs e)
@@ -74,6 +83,34 @@ namespace Almacen.UI.Facturacion
                     row.Cells[2].Value = PagosBLL.pagoReturned.Monto;
                     dataGridView1.Rows.Add(row);
                     maskedTextBoxPagoId.Text = PagosBLL.pagoReturned.PagoId.ToString() ;
+                }
+            }
+        }
+
+        private void buttonEliminar_Click(object sender, EventArgs e)
+        {
+            if(UtilidadesFormularios.Validar(maskedTextBoxPagoId))
+            {
+                int id = int.Parse(maskedTextBoxPagoId.Text);
+                PagosBLL.Buscar(x => x.PagoId == id, false);
+                if (PagosBLL.Eliminar(PagosBLL.pagoReturned))
+                {
+                    VerificarPagos();
+                    UtilidadesFormularios.Limpiar(null, new List<MaskedTextBox> { maskedTextBoxMonto, maskedTextBoxPagoId }, null);
+                }
+            }
+        }
+
+        private void buttonBuscar_Click(object sender, EventArgs e)
+        {
+            if(UtilidadesFormularios.Validar(maskedTextBoxPagoId))
+            {
+                int id = int.Parse(maskedTextBoxPagoId.Text);
+
+                if(PagosBLL.Buscar(x=> x.PagoId == id, false))
+                {
+                    maskedTextBoxMonto.Text = PagosBLL.pagoReturned.Monto.ToString();
+                    dateTimePicker1.Value = PagosBLL.pagoReturned.Fecha;
                 }
             }
         }

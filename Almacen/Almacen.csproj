@@ -141,12 +141,6 @@
     <Compile Include="UI\Registros\RegistrarUsuario.Designer.cs">
       <DependentUpon>RegistrarUsuario.cs</DependentUpon>
     </Compile>
-    <Compile Include="UI\ReporteFactura.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="UI\ReporteFactura.Designer.cs">
-      <DependentUpon>ReporteFactura.cs</DependentUpon>
-    </Compile>
     <Compile Include="Utilidades\UtilidadesFormularios.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -192,14 +186,11 @@
     <EmbeddedResource Include="UI\Registros\RegistrarUsuario.resx">
       <DependentUpon>RegistrarUsuario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="UI\ReporteFactura.resx">
-      <DependentUpon>ReporteFactura.cs</DependentUpon>
-    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Entidades.Cliente.datasource" />
     <None Include="Properties\DataSources\Entidades.Factura.datasource" />
     <None Include="Properties\DataSources\Entidades.FormaDePago.datasource" />
-    <None Include="Properties\DataSources\Entidades.IEntidades.datasource" />
+    <None Include="Properties\DataSources\Entidades.Pago.datasource" />
     <None Include="Properties\DataSources\Entidades.Producto.datasource" />
     <None Include="Properties\DataSources\Entidades.ProductoFactura.datasource" />
     <None Include="Properties\DataSources\Entidades.Ruta.datasource" />
