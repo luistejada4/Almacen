@@ -33,27 +33,30 @@ namespace Almacen.UI.Facturacion
             double totalPagos = 0;
             dataGridView1.Rows.Clear();
             dataGridView1.Refresh();
-            dataGridView1.Rows.Add();
-            foreach (var pago in factura.Pagos)
+            
+
+            if (factura.Pagos.Count > 0)
             {
-                if (dataGridView1.Rows.Count == 0)
+                foreach (var pago in factura.Pagos)
                 {
-                    dataGridView1.Rows.Add();
-                    DataGridViewRow row = (DataGridViewRow)dataGridView1.Rows[0];
-                    row.Cells[0].Value = pago.PagoId;
-                    row.Cells[1].Value = pago.Fecha;
-                    row.Cells[2].Value = pago.Monto;
-                    dataGridView1.Rows.Add(row);
-                    totalPagos += pago.Monto;
-                }
-                else
-                {
-                    DataGridViewRow row = (DataGridViewRow)dataGridView1.Rows[0].Clone();
-                    row.Cells[0].Value = pago.PagoId;
-                    row.Cells[1].Value = pago.Fecha;
-                    row.Cells[2].Value = pago.Monto;
-                    dataGridView1.Rows.Add(row);
-                    totalPagos += pago.Monto;
+                    if (dataGridView1.Rows.Count == 0)
+                    {
+                        dataGridView1.Rows.Add();
+                        DataGridViewRow row = (DataGridViewRow)dataGridView1.Rows[0];
+                        row.Cells[0].Value = pago.PagoId;
+                        row.Cells[1].Value = pago.Fecha;
+                        row.Cells[2].Value = pago.Monto;
+                        totalPagos += pago.Monto;
+                    }
+                    else
+                    {
+                        DataGridViewRow row = (DataGridViewRow)dataGridView1.Rows[0].Clone();
+                        row.Cells[0].Value = pago.PagoId;
+                        row.Cells[1].Value = pago.Fecha;
+                        row.Cells[2].Value = pago.Monto;
+                        dataGridView1.Rows.Add(row);
+                        totalPagos += pago.Monto;
+                    }
                 }
             }
 
@@ -88,14 +91,27 @@ namespace Almacen.UI.Facturacion
                 int.TryParse(maskedTextBoxPagoId.Text, out id);
                 Pago pago = new Pago(id, double.Parse(maskedTextBoxMonto.Text), dateTimePicker1.Value, int.Parse(maskedTextBoxId.Text));
 
-                if(PagosBLL.Guardar(pago))
+                if (PagosBLL.Guardar(pago))
                 {
-                    DataGridViewRow row = (DataGridViewRow)dataGridView1.Rows[0].Clone();
-                    row.Cells[0].Value = PagosBLL.pagoReturned.PagoId;
-                    row.Cells[1].Value = PagosBLL.pagoReturned.Fecha;
-                    row.Cells[2].Value = PagosBLL.pagoReturned.Monto;
-                    dataGridView1.Rows.Add(row);
-                    maskedTextBoxPagoId.Text = PagosBLL.pagoReturned.PagoId.ToString() ;
+                    if (dataGridView1.Rows.Count == 0)
+                    {
+                        dataGridView1.Rows.Add();
+                        DataGridViewRow row = (DataGridViewRow)dataGridView1.Rows[0];
+                        row.Cells[0].Value = PagosBLL.pagoReturned.PagoId;
+                        row.Cells[1].Value = PagosBLL.pagoReturned.Fecha;
+                        row.Cells[2].Value = PagosBLL.pagoReturned.Monto;
+                        maskedTextBoxPagoId.Text = PagosBLL.pagoReturned.PagoId.ToString();
+                    }
+                    else
+                    {
+                        
+                        DataGridViewRow row = (DataGridViewRow)dataGridView1.Rows[0].Clone();
+                        row.Cells[0].Value = PagosBLL.pagoReturned.PagoId;
+                        row.Cells[1].Value = PagosBLL.pagoReturned.Fecha;
+                        row.Cells[2].Value = PagosBLL.pagoReturned.Monto;
+                        dataGridView1.Rows.Add(row);
+                        maskedTextBoxPagoId.Text = PagosBLL.pagoReturned.PagoId.ToString();
+                    }
                 }
             }
         }
