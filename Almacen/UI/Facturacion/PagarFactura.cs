@@ -36,12 +36,25 @@ namespace Almacen.UI.Facturacion
             dataGridView1.Rows.Add();
             foreach (var pago in factura.Pagos)
             {
-                DataGridViewRow row = (DataGridViewRow)dataGridView1.Rows[0].Clone();
-                row.Cells[0].Value = pago.PagoId;
-                row.Cells[1].Value = pago.Fecha;
-                row.Cells[2].Value = pago.Monto;
-                dataGridView1.Rows.Add(row);
-                totalPagos += pago.Monto;
+                if (dataGridView1.Rows.Count == 0)
+                {
+                    dataGridView1.Rows.Add();
+                    DataGridViewRow row = (DataGridViewRow)dataGridView1.Rows[0];
+                    row.Cells[0].Value = pago.PagoId;
+                    row.Cells[1].Value = pago.Fecha;
+                    row.Cells[2].Value = pago.Monto;
+                    dataGridView1.Rows.Add(row);
+                    totalPagos += pago.Monto;
+                }
+                else
+                {
+                    DataGridViewRow row = (DataGridViewRow)dataGridView1.Rows[0].Clone();
+                    row.Cells[0].Value = pago.PagoId;
+                    row.Cells[1].Value = pago.Fecha;
+                    row.Cells[2].Value = pago.Monto;
+                    dataGridView1.Rows.Add(row);
+                    totalPagos += pago.Monto;
+                }
             }
 
             if (totalPagos > factura.Total)

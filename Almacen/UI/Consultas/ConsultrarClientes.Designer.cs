@@ -43,7 +43,10 @@
             this.ColumnRuta = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.checkBoxRuta = new System.Windows.Forms.CheckBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.checkBoxNombre = new System.Windows.Forms.CheckBox();
+            this.buttonImprimir = new System.Windows.Forms.Button();
             this.statusRegistrarCliente.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
@@ -56,9 +59,9 @@
             this.statusRegistrarCliente.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripLabelEstado,
             this.toolStripLabelHaciendo});
-            this.statusRegistrarCliente.Location = new System.Drawing.Point(0, 480);
+            this.statusRegistrarCliente.Location = new System.Drawing.Point(0, 509);
             this.statusRegistrarCliente.Name = "statusRegistrarCliente";
-            this.statusRegistrarCliente.Size = new System.Drawing.Size(427, 22);
+            this.statusRegistrarCliente.Size = new System.Drawing.Size(462, 22);
             this.statusRegistrarCliente.TabIndex = 29;
             // 
             // toolStripLabelEstado
@@ -83,7 +86,7 @@
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.toolStrip1.Size = new System.Drawing.Size(427, 32);
+            this.toolStrip1.Size = new System.Drawing.Size(462, 32);
             this.toolStrip1.TabIndex = 30;
             this.toolStrip1.Text = "toolStrip1";
             this.toolStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.toolStrip1_ItemClicked);
@@ -148,18 +151,21 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.buttonImprimir);
             this.groupBox1.Controls.Add(this.dataGridView);
             this.groupBox1.Font = new System.Drawing.Font("Trebuchet MS", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.DimGray;
             this.groupBox1.Location = new System.Drawing.Point(18, 93);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(391, 381);
+            this.groupBox1.Size = new System.Drawing.Size(391, 413);
             this.groupBox1.TabIndex = 32;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Resultado";
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.checkBoxRuta);
+            this.groupBox2.Controls.Add(this.comboBox1);
             this.groupBox2.Controls.Add(this.checkBoxNombre);
             this.groupBox2.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.Color.DimGray;
@@ -169,6 +175,24 @@
             this.groupBox2.TabIndex = 33;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Filtros";
+            // 
+            // checkBoxRuta
+            // 
+            this.checkBoxRuta.AutoSize = true;
+            this.checkBoxRuta.Location = new System.Drawing.Point(145, 22);
+            this.checkBoxRuta.Name = "checkBoxRuta";
+            this.checkBoxRuta.Size = new System.Drawing.Size(50, 20);
+            this.checkBoxRuta.TabIndex = 40;
+            this.checkBoxRuta.Text = "Ruta";
+            this.checkBoxRuta.UseVisualStyleBackColor = true;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(216, 18);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(137, 24);
+            this.comboBox1.TabIndex = 39;
             // 
             // checkBoxNombre
             // 
@@ -181,11 +205,21 @@
             this.checkBoxNombre.UseVisualStyleBackColor = true;
             this.checkBoxNombre.CheckedChanged += new System.EventHandler(this.checkBoxNombre_CheckedChanged);
             // 
+            // buttonImprimir
+            // 
+            this.buttonImprimir.Location = new System.Drawing.Point(127, 371);
+            this.buttonImprimir.Name = "buttonImprimir";
+            this.buttonImprimir.Size = new System.Drawing.Size(154, 36);
+            this.buttonImprimir.TabIndex = 34;
+            this.buttonImprimir.Text = "Ver reporte";
+            this.buttonImprimir.UseVisualStyleBackColor = true;
+            this.buttonImprimir.Click += new System.EventHandler(this.buttonImprimir_Click);
+            // 
             // ConsultrarClientes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(427, 502);
+            this.ClientSize = new System.Drawing.Size(462, 531);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.toolStrip1);
@@ -229,5 +263,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnId;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnNombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnRuta;
+        private System.Windows.Forms.Button buttonImprimir;
+        private System.Windows.Forms.CheckBox checkBoxRuta;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

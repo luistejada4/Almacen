@@ -2,6 +2,9 @@
 using Entidades;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Core;
+using System.Data.Entity.Core.Objects;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
@@ -26,14 +29,6 @@ namespace BLL
         {
             using (var context = new Database())
             {
-                context.Entry(factura).State = System.Data.Entity.EntityState.Modified;
-
-                foreach (var producto in factura.Productos)
-                {
-                   
-                    context.Entry(producto).State = System.Data.Entity.EntityState.Modified;
-                    
-                }
                 context.SaveChanges();
                 return true;
             }
@@ -49,9 +44,11 @@ namespace BLL
                         facturaReturned.Productos.Count();
                         facturaReturned.Pagos.Count();
                         ClientesBLL.Buscar(x => x.ClienteId == facturaReturned.ClienteId, false);
+                        RutasBLL.Buscar(x => x.RutaId == ClientesBLL.clienteReturned.RutaId, true);
                         FormasDePagosBLL.Buscar(x => x.FormaDePagoId == facturaReturned.FormaDePagoId);
                         facturaReturned.FormaDePago = FormasDePagosBLL.formaDePagoReturned;
                         facturaReturned.Cliente = ClientesBLL.clienteReturned;
+                        facturaReturned.Cliente.Ruta = RutasBLL.rutaReturned;
 
                         foreach (var producto in facturaReturned.Productos)
                         {

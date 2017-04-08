@@ -1,4 +1,5 @@
-﻿using AlmacenLT.Utilidades;
+﻿using Almacen.UI.Reportes;
+using AlmacenLT.Utilidades;
 using BLL;
 using Entidades;
 using System;
@@ -40,16 +41,21 @@ namespace AlmacenLT.UI.Consultas
         {
             checkBoxNombre.Checked = false;
             toolStripTextBoxSearch.Enabled = false;
+            RutasBLL.GetList(x => x.RutaId > 0, false);
+            comboBox1.DataSource = RutasBLL.rutaReturnedList;
+            comboBox1.DisplayMember = "Lugar";
+            comboBox1.ValueMember = "RutaId";
         }
 
         private void toolStripButtonBuscar_Click(object sender, EventArgs e)
         {
-            if (checkBoxNombre.Checked)
+            int rutaId = Convert.ToInt32(comboBox1.SelectedValue);
+            if (checkBoxNombre.Checked && checkBoxRuta.Checked)
             {
                 if (!string.IsNullOrEmpty(toolStripTextBoxSearch.Text) || !string.IsNullOrWhiteSpace(toolStripTextBoxSearch.Text))
                 {
 
-                    if (ClientesBLL.GetList(x => x.Nombres.Contains(toolStripTextBoxSearch.Text), true))
+                    if (ClientesBLL.GetList(x => x.Nombres.Contains(toolStripTextBoxSearch.Text) && x.RutaId == rutaId, true))
                     {
                         LlenarGrid(ClientesBLL.clienteReturnedList);
                     }
@@ -57,11 +63,29 @@ namespace AlmacenLT.UI.Consultas
             }
             else
             {
-                if (ClientesBLL.GetList(x => x.ClienteId > 0, true))
+                if (checkBoxNombre.Checked)
                 {
-                    LlenarGrid(ClientesBLL.clienteReturnedList);
+                    if (ClientesBLL.GetList(x => x.Nombres.Contains(toolStripTextBoxSearch.Text), true))
+                    {
+                        LlenarGrid(ClientesBLL.clienteReturnedList);
+                    }
+                }
+                else if(checkBoxRuta.Checked)
+                {
+                    if (ClientesBLL.GetList(x => x.RutaId == rutaId, true))
+                    {
+                        LlenarGrid(ClientesBLL.clienteReturnedList);
+                    }
+                }
+                else
+                {
+                    if (ClientesBLL.GetList(x => x.RutaId > 0, true))
+                    {
+                        LlenarGrid(ClientesBLL.clienteReturnedList);
+                    }
                 }
             }
+   
 
         }
 
@@ -74,6 +98,11 @@ namespace AlmacenLT.UI.Consultas
         private void toolStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
+        }
+
+        private void buttonImprimir_Click(object sender, EventArgs e)
+        {
+            new ReporteClientes(ClientesBLL.clienteReturnedList).ShowDialog(this);
         }
     }
 }

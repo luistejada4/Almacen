@@ -122,43 +122,50 @@ namespace AlmacenLT
 
         private void buttonAgregarProducto_Click(object sender, EventArgs e)
         {
-            if (dataGridView.Rows.Count == 0)
+            if (string.IsNullOrWhiteSpace(maskedTextBoxId.Text))
             {
-                dataGridView.Rows.Add();
-                DataGridViewRow row = (DataGridViewRow)dataGridView.Rows[0];
-                Producto producto = (Producto)comboBoxProductos.SelectedItem;
-                row.Cells[0].Value = producto.ProductoId;
-                row.Cells[1].Value = producto.Nombre;
-                row.Cells[2].Value = numericUpDownCantidad.Value;
-                row.Cells[3].Value = producto.Precio;
-                row.Cells[4].Value = Convert.ToDouble(row.Cells[2].Value) * Convert.ToDouble(row.Cells[3].Value);
-   
-            }
-            else
-            {
-                DataGridViewRow row = (DataGridViewRow)dataGridView.Rows[0].Clone();
-                Producto producto = (Producto)comboBoxProductos.SelectedItem;
-
-                bool inRow = false;
-                foreach (DataGridViewRow productoRow in dataGridView.Rows)
+                if (dataGridView.Rows.Count == 0)
                 {
-                    if (Convert.ToInt32(productoRow.Cells[0].Value) == producto.ProductoId)
-                    {
-                        productoRow.Cells[2].Value = Convert.ToInt32(productoRow.Cells[2].Value) + numericUpDownCantidad.Value;
-                        inRow = true;
-                    }
-                }
-                if (!inRow)
-                {
+                    dataGridView.Rows.Add();
+                    DataGridViewRow row = (DataGridViewRow)dataGridView.Rows[0];
+                    Producto producto = (Producto)comboBoxProductos.SelectedItem;
                     row.Cells[0].Value = producto.ProductoId;
                     row.Cells[1].Value = producto.Nombre;
                     row.Cells[2].Value = numericUpDownCantidad.Value;
                     row.Cells[3].Value = producto.Precio;
                     row.Cells[4].Value = Convert.ToDouble(row.Cells[2].Value) * Convert.ToDouble(row.Cells[3].Value);
-                    dataGridView.Rows.Add(row);
+
                 }
+                else
+                {
+                    DataGridViewRow row = (DataGridViewRow)dataGridView.Rows[0].Clone();
+                    Producto producto = (Producto)comboBoxProductos.SelectedItem;
+
+                    bool inRow = false;
+                    foreach (DataGridViewRow productoRow in dataGridView.Rows)
+                    {
+                        if (Convert.ToInt32(productoRow.Cells[0].Value) == producto.ProductoId)
+                        {
+                            productoRow.Cells[2].Value = Convert.ToInt32(productoRow.Cells[2].Value) + numericUpDownCantidad.Value;
+                            inRow = true;
+                        }
+                    }
+                    if (!inRow)
+                    {
+                        row.Cells[0].Value = producto.ProductoId;
+                        row.Cells[1].Value = producto.Nombre;
+                        row.Cells[2].Value = numericUpDownCantidad.Value;
+                        row.Cells[3].Value = producto.Precio;
+                        row.Cells[4].Value = Convert.ToDouble(row.Cells[2].Value) * Convert.ToDouble(row.Cells[3].Value);
+                        dataGridView.Rows.Add(row);
+                    }
+                }
+                CalcularFactura();
             }
-            CalcularFactura();
+            else
+            {
+                MessageBox.Show("No puede agregar productos a una factura ya guardada");
+            }
         }
 
         private void buttonGuardar_Click(object sender, EventArgs e)
@@ -203,7 +210,7 @@ namespace AlmacenLT
                             }
                         }
                         factura.Pagos = null;
-
+                        
                         if (FacturasBLL.Modificar(factura))
                         {
                             maskedTextBoxId.Text = FacturasBLL.facturaReturned.FacturaId.ToString();
@@ -238,14 +245,30 @@ namespace AlmacenLT
 
                     foreach (var producto in factura.Productos)
                     {
-                        DataGridViewRow row = (DataGridViewRow)dataGridView.Rows[0].Clone();
-                        row.Cells[0].Value = producto.ProductoId;
-                        row.Cells[1].Value = producto.Producto.Nombre;
-                        row.Cells[2].Value = producto.Cantidad;
-                        row.Cells[3].Value = producto.Precio;
-                        row.Cells[4].Value = row.Cells[4].Value = Convert.ToDouble(row.Cells[2].Value) * Convert.ToDouble(row.Cells[3].Value);
-                        dataGridView.Rows.Add(row);
+                        if (dataGridView.Rows.Count == 0)
+                        {
+                            dataGridView.Rows.Add();
+                            DataGridViewRow row = (DataGridViewRow)dataGridView.Rows[0];
+                            row.Cells[0].Value = producto.ProductoId;
+                            row.Cells[1].Value = producto.Producto.Nombre;
+                            row.Cells[2].Value = producto.Cantidad;
+                            row.Cells[3].Value = producto.Precio;
+                            row.Cells[4].Value = row.Cells[4].Value = Convert.ToDouble(row.Cells[2].Value) * Convert.ToDouble(row.Cells[3].Value);
+
+                        }
+                        else
+                        {
+                            DataGridViewRow row = (DataGridViewRow)dataGridView.Rows[0].Clone();
+                            row.Cells[0].Value = producto.ProductoId;
+                            row.Cells[1].Value = producto.Producto.Nombre;
+                            row.Cells[2].Value = producto.Cantidad;
+                            row.Cells[3].Value = producto.Precio;
+                            row.Cells[4].Value = row.Cells[4].Value = Convert.ToDouble(row.Cells[2].Value) * Convert.ToDouble(row.Cells[3].Value);
+                            dataGridView.Rows.Add(row);
+                        }
                     }
+
+
                     CalcularFactura();
                     VerificarPagos(factura);
                 }
@@ -272,23 +295,7 @@ namespace AlmacenLT
         private void button1_Click(object sender, EventArgs e)
         {
             
-            if(UtilidadesFormularios.Validar(maskedTextBoxId))
-            {
-                var ventana = new ReporteFactura();
-                int facturaId = int.Parse(maskedTextBoxId.Text);
-                FacturasBLL.Buscar(x => x.FacturaId == facturaId, true);
-                ventana.Factura = FacturasBLL.facturaReturned;
-                ventana.cliente = FacturasBLL.facturaReturned.Cliente;
-                List<Producto> productos = new List<Producto>();
-                foreach (var productosFacturas in FacturasBLL.facturaReturned.Productos)
-                {
-                    productosFacturas.Producto.Costo = productosFacturas.Precio;
-                    productos.Add(productosFacturas.Producto);
-                }
-
-                ventana.lista = productos;
-                ventana.Show();
-            }
+           
 
         }
 
@@ -326,6 +333,29 @@ namespace AlmacenLT
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void buttonImprimir_Click(object sender, EventArgs e)
+        {
+            if (UtilidadesFormularios.Validar(maskedTextBoxId))
+            {
+                int facturaId = int.Parse(maskedTextBoxId.Text);
+                FacturasBLL.Buscar(x => x.FacturaId == facturaId, true);
+                
+                List<ProductosInFacturas> productos = new List<ProductosInFacturas>();
+                ProductosFacturasBLL.GetList(x => x.FacturaId == facturaId, true);
+                foreach (var producto in ProductosFacturasBLL.productoFacturaReturnedList)
+                {
+                    productos.Add(new ProductosInFacturas(producto.Producto.Nombre, producto.Cantidad, producto.Precio));
+                }
+
+                new ReporteFactura(FacturasBLL.facturaReturned, productos).Show();           
+            }
+        }
+
+        private void dataGridView_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+        {
+            
         }
     }
 }

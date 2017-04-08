@@ -5,6 +5,7 @@ namespace DAL
     using System.Data.Entity;
     using System.Data.Entity.ModelConfiguration.Conventions;
     using System.Linq;
+    using System.Data.Entity.Core.Objects;
 
     public class Database : DbContext
     {
@@ -32,6 +33,11 @@ namespace DAL
 
         
          
+        }
+
+        public void Refresh(RefreshMode clientWins, object articles)
+        {
+            this.Refresh(clientWins, articles);
         }
     }
 }

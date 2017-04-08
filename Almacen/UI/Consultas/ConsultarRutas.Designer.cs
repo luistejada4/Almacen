@@ -37,8 +37,10 @@
             this.label4 = new System.Windows.Forms.Label();
             this.buttonBuscar = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.ColumnCliente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Direccion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.buttonImprimir = new System.Windows.Forms.Button();
             this.statusRegistrarCliente.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -50,7 +52,7 @@
             this.toolStripLabelEstado,
             this.toolStripLabelHaciendo,
             this.toolStripProgressBar});
-            this.statusRegistrarCliente.Location = new System.Drawing.Point(0, 527);
+            this.statusRegistrarCliente.Location = new System.Drawing.Point(0, 544);
             this.statusRegistrarCliente.Name = "statusRegistrarCliente";
             this.statusRegistrarCliente.Size = new System.Drawing.Size(366, 22);
             this.statusRegistrarCliente.TabIndex = 34;
@@ -113,11 +115,22 @@
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.Control;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ColumnCliente});
+            this.ColumnCliente,
+            this.Direccion});
             this.dataGridView1.Location = new System.Drawing.Point(22, 108);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(144, 416);
+            this.dataGridView1.Size = new System.Drawing.Size(244, 350);
             this.dataGridView1.TabIndex = 40;
+            // 
+            // ColumnCliente
+            // 
+            this.ColumnCliente.HeaderText = "Cliente";
+            this.ColumnCliente.Name = "ColumnCliente";
+            // 
+            // Direccion
+            // 
+            this.Direccion.HeaderText = "Direccion";
+            this.Direccion.Name = "Direccion";
             // 
             // groupBox1
             // 
@@ -131,16 +144,22 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Consultar ruta";
             // 
-            // ColumnCliente
+            // buttonImprimir
             // 
-            this.ColumnCliente.HeaderText = "Cliente";
-            this.ColumnCliente.Name = "ColumnCliente";
+            this.buttonImprimir.Location = new System.Drawing.Point(65, 464);
+            this.buttonImprimir.Name = "buttonImprimir";
+            this.buttonImprimir.Size = new System.Drawing.Size(154, 36);
+            this.buttonImprimir.TabIndex = 42;
+            this.buttonImprimir.Text = "Ver reporte";
+            this.buttonImprimir.UseVisualStyleBackColor = true;
+            this.buttonImprimir.Click += new System.EventHandler(this.buttonImprimir_Click);
             // 
             // ConsultarRutas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(366, 549);
+            this.ClientSize = new System.Drawing.Size(366, 566);
+            this.Controls.Add(this.buttonImprimir);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.statusRegistrarCliente);
@@ -173,5 +192,7 @@
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridViewTextBoxColumn ColumnCliente;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Direccion;
+        private System.Windows.Forms.Button buttonImprimir;
     }
 }

@@ -165,11 +165,11 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(14, 211);
+            this.label7.Location = new System.Drawing.Point(26, 212);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(78, 22);
+            this.label7.Size = new System.Drawing.Size(58, 22);
             this.label7.TabIndex = 16;
-            this.label7.Text = "Direccion";
+            this.label7.Text = "Cedula";
             // 
             // label6
             // 

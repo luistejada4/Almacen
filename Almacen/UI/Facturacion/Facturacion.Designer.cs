@@ -31,15 +31,11 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Facturacion));
             this.panel1 = new System.Windows.Forms.Panel();
             this.groupBoxBotones = new System.Windows.Forms.GroupBox();
-            this.buttonImprimir = new System.Windows.Forms.Button();
-            this.buttonPagar = new System.Windows.Forms.Button();
-            this.buttonEliminar = new System.Windows.Forms.Button();
-            this.buttonGuardar = new System.Windows.Forms.Button();
-            this.buttonNuevo = new System.Windows.Forms.Button();
             this.groupBoxTotal = new System.Windows.Forms.GroupBox();
             this.labelTotal = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBoxFactura = new System.Windows.Forms.GroupBox();
+            this.comboBoxCliente = new System.Windows.Forms.ComboBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.labelEstado = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -49,7 +45,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.comboBoxFormaDePago = new System.Windows.Forms.ComboBox();
             this.numericUpDownCantidad = new System.Windows.Forms.NumericUpDown();
-            this.buttonAgregarProducto = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.comboBoxProductos = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -62,12 +57,17 @@
             this.ColumnPrecio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColumnSubTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.buttonBuscar = new System.Windows.Forms.Button();
             this.maskedTextBoxId = new System.Windows.Forms.MaskedTextBox();
             this.statusRegistrarCliente = new System.Windows.Forms.StatusStrip();
             this.toolStripLabelEstado = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolStripLabelHaciendo = new System.Windows.Forms.ToolStripStatusLabel();
-            this.comboBoxCliente = new System.Windows.Forms.ComboBox();
+            this.buttonImprimir = new System.Windows.Forms.Button();
+            this.buttonPagar = new System.Windows.Forms.Button();
+            this.buttonEliminar = new System.Windows.Forms.Button();
+            this.buttonGuardar = new System.Windows.Forms.Button();
+            this.buttonNuevo = new System.Windows.Forms.Button();
+            this.buttonAgregarProducto = new System.Windows.Forms.Button();
+            this.buttonBuscar = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBoxBotones.SuspendLayout();
             this.groupBoxTotal.SuspendLayout();
@@ -106,74 +106,6 @@
             this.groupBoxBotones.Size = new System.Drawing.Size(411, 135);
             this.groupBoxBotones.TabIndex = 16;
             this.groupBoxBotones.TabStop = false;
-            // 
-            // buttonImprimir
-            // 
-            this.buttonImprimir.Location = new System.Drawing.Point(330, 12);
-            this.buttonImprimir.Name = "buttonImprimir";
-            this.buttonImprimir.Size = new System.Drawing.Size(75, 35);
-            this.buttonImprimir.TabIndex = 40;
-            this.buttonImprimir.Text = "Imprimir";
-            this.buttonImprimir.UseVisualStyleBackColor = true;
-            this.buttonImprimir.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // buttonPagar
-            // 
-            this.buttonPagar.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonPagar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.buttonPagar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonPagar.Location = new System.Drawing.Point(249, 12);
-            this.buttonPagar.Name = "buttonPagar";
-            this.buttonPagar.Size = new System.Drawing.Size(75, 35);
-            this.buttonPagar.TabIndex = 41;
-            this.buttonPagar.Text = "Pagos";
-            this.buttonPagar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonPagar.UseVisualStyleBackColor = true;
-            this.buttonPagar.Click += new System.EventHandler(this.buttonPagar_Click);
-            // 
-            // buttonEliminar
-            // 
-            this.buttonEliminar.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonEliminar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.buttonEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonEliminar.Location = new System.Drawing.Point(168, 12);
-            this.buttonEliminar.Name = "buttonEliminar";
-            this.buttonEliminar.Size = new System.Drawing.Size(75, 35);
-            this.buttonEliminar.TabIndex = 13;
-            this.buttonEliminar.Text = "Eliminar";
-            this.buttonEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonEliminar.UseVisualStyleBackColor = true;
-            this.buttonEliminar.Click += new System.EventHandler(this.buttonEliminar_Click);
-            // 
-            // buttonGuardar
-            // 
-            this.buttonGuardar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.buttonGuardar.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonGuardar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.buttonGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonGuardar.Location = new System.Drawing.Point(87, 12);
-            this.buttonGuardar.Name = "buttonGuardar";
-            this.buttonGuardar.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.buttonGuardar.Size = new System.Drawing.Size(75, 35);
-            this.buttonGuardar.TabIndex = 11;
-            this.buttonGuardar.Text = "Guardar";
-            this.buttonGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonGuardar.UseVisualStyleBackColor = true;
-            this.buttonGuardar.Click += new System.EventHandler(this.buttonGuardar_Click);
-            // 
-            // buttonNuevo
-            // 
-            this.buttonNuevo.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonNuevo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.buttonNuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonNuevo.Location = new System.Drawing.Point(6, 12);
-            this.buttonNuevo.Name = "buttonNuevo";
-            this.buttonNuevo.Size = new System.Drawing.Size(75, 35);
-            this.buttonNuevo.TabIndex = 12;
-            this.buttonNuevo.Text = "Nuevo";
-            this.buttonNuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonNuevo.UseVisualStyleBackColor = true;
-            this.buttonNuevo.Click += new System.EventHandler(this.buttonNuevo_Click);
             // 
             // groupBoxTotal
             // 
@@ -236,6 +168,16 @@
             this.groupBoxFactura.TabIndex = 13;
             this.groupBoxFactura.TabStop = false;
             this.groupBoxFactura.Text = "Facturacion";
+            // 
+            // comboBoxCliente
+            // 
+            this.comboBoxCliente.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.comboBoxCliente.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
+            this.comboBoxCliente.FormattingEnabled = true;
+            this.comboBoxCliente.Location = new System.Drawing.Point(127, 51);
+            this.comboBoxCliente.Name = "comboBoxCliente";
+            this.comboBoxCliente.Size = new System.Drawing.Size(239, 26);
+            this.comboBoxCliente.TabIndex = 44;
             // 
             // groupBox3
             // 
@@ -330,20 +272,6 @@
             this.numericUpDownCantidad.Size = new System.Drawing.Size(42, 26);
             this.numericUpDownCantidad.TabIndex = 37;
             // 
-            // buttonAgregarProducto
-            // 
-            this.buttonAgregarProducto.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonAgregarProducto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.buttonAgregarProducto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonAgregarProducto.Location = new System.Drawing.Point(433, 139);
-            this.buttonAgregarProducto.Name = "buttonAgregarProducto";
-            this.buttonAgregarProducto.Size = new System.Drawing.Size(75, 35);
-            this.buttonAgregarProducto.TabIndex = 14;
-            this.buttonAgregarProducto.Text = "Agregar";
-            this.buttonAgregarProducto.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonAgregarProducto.UseVisualStyleBackColor = true;
-            this.buttonAgregarProducto.Click += new System.EventHandler(this.buttonAgregarProducto_Click);
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -417,6 +345,7 @@
             this.dataGridView.TabIndex = 32;
             this.dataGridView.CellEndEdit += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CellEndEdit);
             this.dataGridView.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dataGridView_RowsAdded);
+            this.dataGridView.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.dataGridView_RowsRemoved);
             // 
             // ColumnProductoId
             // 
@@ -459,16 +388,6 @@
             this.dateTimePicker1.TabIndex = 16;
             this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
             // 
-            // buttonBuscar
-            // 
-            this.buttonBuscar.Image = ((System.Drawing.Image)(resources.GetObject("buttonBuscar.Image")));
-            this.buttonBuscar.Location = new System.Drawing.Point(385, 23);
-            this.buttonBuscar.Name = "buttonBuscar";
-            this.buttonBuscar.Size = new System.Drawing.Size(29, 25);
-            this.buttonBuscar.TabIndex = 12;
-            this.buttonBuscar.UseVisualStyleBackColor = true;
-            this.buttonBuscar.Click += new System.EventHandler(this.buttonBuscar_Click);
-            // 
             // maskedTextBoxId
             // 
             this.maskedTextBoxId.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -504,15 +423,105 @@
             this.toolStripLabelHaciendo.Size = new System.Drawing.Size(54, 17);
             this.toolStripLabelHaciendo.Text = "Ninguno";
             // 
-            // comboBoxCliente
+            // buttonImprimir
             // 
-            this.comboBoxCliente.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.comboBoxCliente.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.comboBoxCliente.FormattingEnabled = true;
-            this.comboBoxCliente.Location = new System.Drawing.Point(127, 51);
-            this.comboBoxCliente.Name = "comboBoxCliente";
-            this.comboBoxCliente.Size = new System.Drawing.Size(239, 26);
-            this.comboBoxCliente.TabIndex = 44;
+            this.buttonImprimir.Image = global::Almacen.Properties.Resources.Print_20px;
+            this.buttonImprimir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonImprimir.Location = new System.Drawing.Point(330, 12);
+            this.buttonImprimir.Name = "buttonImprimir";
+            this.buttonImprimir.Size = new System.Drawing.Size(75, 35);
+            this.buttonImprimir.TabIndex = 40;
+            this.buttonImprimir.Text = "Imprimir";
+            this.buttonImprimir.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonImprimir.UseVisualStyleBackColor = true;
+            this.buttonImprimir.Click += new System.EventHandler(this.buttonImprimir_Click);
+            // 
+            // buttonPagar
+            // 
+            this.buttonPagar.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonPagar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.buttonPagar.Image = global::Almacen.Properties.Resources.US_Dollar_40;
+            this.buttonPagar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonPagar.Location = new System.Drawing.Point(249, 12);
+            this.buttonPagar.Name = "buttonPagar";
+            this.buttonPagar.Size = new System.Drawing.Size(75, 35);
+            this.buttonPagar.TabIndex = 41;
+            this.buttonPagar.Text = "Pagos";
+            this.buttonPagar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonPagar.UseVisualStyleBackColor = true;
+            this.buttonPagar.Click += new System.EventHandler(this.buttonPagar_Click);
+            // 
+            // buttonEliminar
+            // 
+            this.buttonEliminar.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonEliminar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.buttonEliminar.Image = global::Almacen.Properties.Resources.Delete_20;
+            this.buttonEliminar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonEliminar.Location = new System.Drawing.Point(168, 12);
+            this.buttonEliminar.Name = "buttonEliminar";
+            this.buttonEliminar.Size = new System.Drawing.Size(75, 35);
+            this.buttonEliminar.TabIndex = 13;
+            this.buttonEliminar.Text = "Eliminar";
+            this.buttonEliminar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonEliminar.UseVisualStyleBackColor = true;
+            this.buttonEliminar.Click += new System.EventHandler(this.buttonEliminar_Click);
+            // 
+            // buttonGuardar
+            // 
+            this.buttonGuardar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.buttonGuardar.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonGuardar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.buttonGuardar.Image = global::Almacen.Properties.Resources.Save_20;
+            this.buttonGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonGuardar.Location = new System.Drawing.Point(87, 12);
+            this.buttonGuardar.Name = "buttonGuardar";
+            this.buttonGuardar.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.buttonGuardar.Size = new System.Drawing.Size(75, 35);
+            this.buttonGuardar.TabIndex = 11;
+            this.buttonGuardar.Text = "Guardar";
+            this.buttonGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonGuardar.UseVisualStyleBackColor = true;
+            this.buttonGuardar.Click += new System.EventHandler(this.buttonGuardar_Click);
+            // 
+            // buttonNuevo
+            // 
+            this.buttonNuevo.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonNuevo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.buttonNuevo.Image = global::Almacen.Properties.Resources.Create_New_20;
+            this.buttonNuevo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonNuevo.Location = new System.Drawing.Point(6, 12);
+            this.buttonNuevo.Name = "buttonNuevo";
+            this.buttonNuevo.Size = new System.Drawing.Size(75, 35);
+            this.buttonNuevo.TabIndex = 12;
+            this.buttonNuevo.Text = "Nuevo";
+            this.buttonNuevo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonNuevo.UseVisualStyleBackColor = true;
+            this.buttonNuevo.Click += new System.EventHandler(this.buttonNuevo_Click);
+            // 
+            // buttonAgregarProducto
+            // 
+            this.buttonAgregarProducto.Font = new System.Drawing.Font("Trebuchet MS", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAgregarProducto.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.buttonAgregarProducto.Image = global::Almacen.Properties.Resources.Plus_20;
+            this.buttonAgregarProducto.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonAgregarProducto.Location = new System.Drawing.Point(433, 139);
+            this.buttonAgregarProducto.Name = "buttonAgregarProducto";
+            this.buttonAgregarProducto.Size = new System.Drawing.Size(75, 35);
+            this.buttonAgregarProducto.TabIndex = 14;
+            this.buttonAgregarProducto.Text = "Agregar";
+            this.buttonAgregarProducto.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonAgregarProducto.UseVisualStyleBackColor = true;
+            this.buttonAgregarProducto.Click += new System.EventHandler(this.buttonAgregarProducto_Click);
+            // 
+            // buttonBuscar
+            // 
+            this.buttonBuscar.Image = ((System.Drawing.Image)(resources.GetObject("buttonBuscar.Image")));
+            this.buttonBuscar.Location = new System.Drawing.Point(385, 23);
+            this.buttonBuscar.Name = "buttonBuscar";
+            this.buttonBuscar.Size = new System.Drawing.Size(29, 25);
+            this.buttonBuscar.TabIndex = 12;
+            this.buttonBuscar.UseVisualStyleBackColor = true;
+            this.buttonBuscar.Click += new System.EventHandler(this.buttonBuscar_Click);
             // 
             // Facturacion
             // 

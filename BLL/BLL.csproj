@@ -54,6 +54,7 @@
     <Compile Include="FormasDePagosBLL.cs" />
     <Compile Include="PagosBLL.cs" />
     <Compile Include="ProductosBLL.cs" />
+    <Compile Include="ProductosFacturasBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RutasBLL.cs" />
     <Compile Include="UsuariosBLL.cs" />

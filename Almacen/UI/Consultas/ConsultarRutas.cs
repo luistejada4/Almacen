@@ -1,4 +1,5 @@
-﻿using BLL;
+﻿using Almacen.UI.Reportes;
+using BLL;
 using Entidades;
 using System;
 using System.Collections.Generic;
@@ -44,6 +45,7 @@ namespace AlmacenLT.UI.Consultas
             {
                 DataGridViewRow row = (DataGridViewRow)dataGridView1.Rows[0].Clone();
                 row.Cells[0].Value = cliente.Nombres;
+                row.Cells[1].Value = cliente.Direccion;
    
                 dataGridView1.Rows.Add(row);
             }
@@ -52,6 +54,11 @@ namespace AlmacenLT.UI.Consultas
         private void Button_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void buttonImprimir_Click(object sender, EventArgs e)
+        {
+            new ReporteRutas(RutasBLL.rutaReturned.Clientes, RutasBLL.rutaReturned).ShowDialog(this);
         }
     }
 }
